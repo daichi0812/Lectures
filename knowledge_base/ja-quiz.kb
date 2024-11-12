@@ -1,0 +1,53 @@
+knowledge_base_name: 日本語クイズKB
+author: Takeshi Morita
+description: 日本語クイズを出題するための知識ベース.
+alias_set:
+
+fact_set:
+- question_num=1
+- waiting_for_input=no
+- num_of_correct_answers=0
+- is_end=false
+rule_base: |
+  Rule1-1: IF question_num==1
+           AND waiting_for_input==no
+           THEN output=第一問：AIを日本語に翻訳すると何と言うか？
+           THEN waiting_for_input=yes
+
+  Rule1-2: IF question_num==1
+           AND waiting_for_input==yes
+           AND input@>人工
+           AND input@>知能          
+           THEN output=<font color="blue" size="6">正解です!!</font><br> Let's go to the next question.
+           THEN num_of_correct_answers+=1
+           THEN question_num=2
+           THEN waiting_for_input=no
+
+  Rule1-3: IF question_num==1
+           AND waiting_for_input==yes
+           THEN output=<font color="red" size="6">不正解です!!</font><br> AIの日本語訳は<a href="https://ja.wikipedia.org/wiki/人工知能">人工知能</a>です. 次の質問です.
+           THEN question_num=2
+           THEN waiting_for_input=no
+
+  Rule2-1: IF question_num==2
+           AND waiting_for_input==no
+           THEN output=第二問：プロダクションシステムにおいてルールを適用して知識ベースから新たなファクトを導出するコンポーネントを何と言うか？
+           THEN waiting_for_input=yes
+
+  Rule2-2: IF question_num==2
+           AND waiting_for_input==yes
+           AND input@>推論
+           AND input@>エンジン
+           THEN output=<font color="blue" size="6">正解です!!</font><br>
+           THEN num_of_correct_answers+=1
+           THEN is_end=true
+           THEN waiting_for_input=no
+
+  Rule2-3: IF question_num==2
+           AND waiting_for_input==yes
+           THEN output=<font color="red" size="6">不正解です!!</font><br> 正解は「推論エンジン」です．以下のプロダクションシステムの構成図を確認してください．<br><br><img src="./img/overview_of_production_system.png" width="400">
+           THEN is_end=true
+           THEN waiting_for_input=no
+
+  Rule3: IF is_end==true
+     THEN output=クイズは"num_of_correct_answers"問正解でした．
