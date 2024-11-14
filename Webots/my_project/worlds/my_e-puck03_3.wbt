@@ -1,0 +1,35 @@
+#VRML_SIM R2019a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.31179161203537 0.8941056326988717 0.3214982243194134 1.6938019199278325
+  position 0.8420060701326396 0.7235072698779709 -0.047089568356581485
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+E-puck_ls {
+  controller "my_controller2_2_light_sensor"
+}
+DEF LAMP Solid {
+  translation -0.1 0.095 0.24000000000000007
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        roughness 1
+        metalness 0
+        emissiveColor 1 1 1
+      }
+      geometry Sphere {
+        radius 0.01
+      }
+    }
+    PointLight {
+      attenuation 0 0 5
+    }
+  ]
+}

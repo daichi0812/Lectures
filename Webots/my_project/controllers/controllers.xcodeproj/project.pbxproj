@@ -1,0 +1,200 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXFileReference section */
+		428EDFBA2C031F800024460C /* my_controller1_4_1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller1_4_1; sourceTree = "<group>"; };
+		428EDFBB2C031F800024460C /* my_controller1_4_15822108 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller1_4_15822108; sourceTree = "<group>"; };
+		428EDFBC2C031F800024460C /* e-puck_cross-compilation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "e-puck_cross-compilation"; sourceTree = "<group>"; };
+		428EDFBD2C031F800024460C /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_Store; sourceTree = "<group>"; };
+		428EDFBE2C031F800024460C /* my_controller1_1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller1_1; sourceTree = "<group>"; };
+		428EDFBF2C031F800024460C /* my_controller3_2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller3_2; sourceTree = "<group>"; };
+		428EDFC02C031F800024460C /* e-puck_avoid_obstacles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "e-puck_avoid_obstacles"; sourceTree = "<group>"; };
+		428EDFC12C031F800024460C /* my_controller1_3_1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller1_3_1; sourceTree = "<group>"; };
+		428EDFC22C031F800024460C /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		428EDFC32C031F800024460C /* e-puck2_server */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "e-puck2_server"; sourceTree = "<group>"; };
+		428EDFC42C031F800024460C /* my_controller_original */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller_original; sourceTree = "<group>"; };
+		428EDFC52C031F800024460C /* my_controller2_1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller2_1; sourceTree = "<group>"; };
+		428EDFC62C031F800024460C /* my_controller1_2_1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller1_2_1; sourceTree = "<group>"; };
+		428EDFC72C031F800024460C /* line_follower */ = {isa = PBXFileReference; lastKnownFileType = folder; path = line_follower; sourceTree = "<group>"; };
+		428EDFC82C031F800024460C /* my_controller1_4_2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller1_4_2; sourceTree = "<group>"; };
+		428EDFC92C031F800024460C /* my_controller1_4 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller1_4; sourceTree = "<group>"; };
+		428EDFCA2C031F800024460C /* my_controller1_3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller1_3; sourceTree = "<group>"; };
+		428EDFCB2C031F800024460C /* my_controller1_2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller1_2; sourceTree = "<group>"; };
+		428EDFCC2C031F800024460C /* my_controller3_1 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller3_1; sourceTree = "<group>"; };
+		428EDFCD2C031F800024460C /* my_controller2_2_light_sensor */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller2_2_light_sensor; sourceTree = "<group>"; };
+		428EDFCE2C031F800024460C /* e-puck */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "e-puck"; sourceTree = "<group>"; };
+		428EDFCF2C031F800024460C /* e-puck_line_demo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "e-puck_line_demo"; sourceTree = "<group>"; };
+		428EDFD02C031F800024460C /* obstacle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = obstacle; sourceTree = "<group>"; };
+		428EDFD12C031F800024460C /* .vscode */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .vscode; sourceTree = "<group>"; };
+		428EDFD22C031F800024460C /* my_controller2_4 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller2_4; sourceTree = "<group>"; };
+		428EDFD32C031F800024460C /* my_controller2_3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller2_3; sourceTree = "<group>"; };
+		428EDFD42C031F800024460C /* my_controller_original_4 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller_original_4; sourceTree = "<group>"; };
+		428EDFD52C031F800024460C /* my_controller_original_3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller_original_3; sourceTree = "<group>"; };
+		428EDFD62C031F800024460C /* my_controller2_2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller2_2; sourceTree = "<group>"; };
+		428EDFD72C031F800024460C /* my_controller2_5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller2_5; sourceTree = "<group>"; };
+		428EDFD82C031F800024460C /* e-puck_line */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "e-puck_line"; sourceTree = "<group>"; };
+		428EDFD92C031F800024460C /* my_controller_original_2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = my_controller_original_2; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		428EDFB42C031F800024460C = {
+			isa = PBXGroup;
+			children = (
+				428EDFBA2C031F800024460C /* my_controller1_4_1 */,
+				428EDFBB2C031F800024460C /* my_controller1_4_15822108 */,
+				428EDFBC2C031F800024460C /* e-puck_cross-compilation */,
+				428EDFBD2C031F800024460C /* .DS_Store */,
+				428EDFBE2C031F800024460C /* my_controller1_1 */,
+				428EDFBF2C031F800024460C /* my_controller3_2 */,
+				428EDFC02C031F800024460C /* e-puck_avoid_obstacles */,
+				428EDFC12C031F800024460C /* my_controller1_3_1 */,
+				428EDFC22C031F800024460C /* Makefile */,
+				428EDFC32C031F800024460C /* e-puck2_server */,
+				428EDFC42C031F800024460C /* my_controller_original */,
+				428EDFC52C031F800024460C /* my_controller2_1 */,
+				428EDFC62C031F800024460C /* my_controller1_2_1 */,
+				428EDFC72C031F800024460C /* line_follower */,
+				428EDFC82C031F800024460C /* my_controller1_4_2 */,
+				428EDFC92C031F800024460C /* my_controller1_4 */,
+				428EDFCA2C031F800024460C /* my_controller1_3 */,
+				428EDFCB2C031F800024460C /* my_controller1_2 */,
+				428EDFCC2C031F800024460C /* my_controller3_1 */,
+				428EDFCD2C031F800024460C /* my_controller2_2_light_sensor */,
+				428EDFCE2C031F800024460C /* e-puck */,
+				428EDFCF2C031F800024460C /* e-puck_line_demo */,
+				428EDFD02C031F800024460C /* obstacle */,
+				428EDFD12C031F800024460C /* .vscode */,
+				428EDFD22C031F800024460C /* my_controller2_4 */,
+				428EDFD32C031F800024460C /* my_controller2_3 */,
+				428EDFD42C031F800024460C /* my_controller_original_4 */,
+				428EDFD52C031F800024460C /* my_controller_original_3 */,
+				428EDFD62C031F800024460C /* my_controller2_2 */,
+				428EDFD72C031F800024460C /* my_controller2_5 */,
+				428EDFD82C031F800024460C /* e-puck_line */,
+				428EDFD92C031F800024460C /* my_controller_original_2 */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		428EDFB92C031F800024460C /* controllers */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 428EDFDA2C031F800024460C /* Build configuration list for PBXLegacyTarget "controllers" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = /Users/daichi/Documents/my_project/controllers;
+			dependencies = (
+			);
+			name = controllers;
+			passBuildSettingsInEnvironment = 1;
+			productName = controllers;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		428EDFB52C031F800024460C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+			};
+			buildConfigurationList = 428EDFB82C031F800024460C /* Build configuration list for PBXProject "controllers" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 428EDFB42C031F800024460C;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				428EDFB92C031F800024460C /* controllers */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		428EDFB62C031F800024460C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		428EDFB72C031F800024460C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		428EDFDB2C031F800024460C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = controllers;
+			};
+			name = Debug;
+		};
+		428EDFDC2C031F800024460C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = controllers;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		428EDFB82C031F800024460C /* Build configuration list for PBXProject "controllers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				428EDFB62C031F800024460C /* Debug */,
+				428EDFB72C031F800024460C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		428EDFDA2C031F800024460C /* Build configuration list for PBXLegacyTarget "controllers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				428EDFDB2C031F800024460C /* Debug */,
+				428EDFDC2C031F800024460C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 428EDFB52C031F800024460C /* Project object */;
+}

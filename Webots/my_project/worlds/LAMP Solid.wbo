@@ -1,0 +1,20 @@
+#VRML_OBJ R2019a utf8
+DEF LAMP Solid {
+  translation -0.1 0.095 0
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        roughness 1
+        metalness 0
+        emissiveColor 1 1 1
+      }
+      geometry Sphere {
+        radius 0.01
+      }
+    }
+    PointLight {
+      attenuation 0 0 5
+    }
+  ]
+}

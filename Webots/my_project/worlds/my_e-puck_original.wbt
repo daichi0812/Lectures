@@ -1,0 +1,105 @@
+#VRML_SIM R2019a utf8
+WorldInfo {
+  basicTimeStep 4
+}
+Viewpoint {
+  orientation -0.5821316798113927 -0.718584235663326 -0.3804726056053441 1.4919966096549298
+  position -0.7969480843722987 1.2906200574822222 0.36944335663767164
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+E-puck {
+  translation -0.21983270163574964 0 -0.21017512529204663
+  rotation 0 1 0 1.57
+  name "e-puck1"
+  controller "my_controller_original"
+}
+E-puck {
+  translation -0.09989641411397154 0 -0.030159224123285193
+  rotation 0 1 0 1.57
+  name "e-puck1(1)"
+  controller "my_controller_original_2"
+}
+E-puck {
+  translation -0.00992030074461195 0 0.09983280309756248
+  rotation 0 1 0 1.57
+  name "e-puck1(2)"
+  controller "my_controller_original_3"
+}
+E-puck {
+  translation 0.150262898788399 0 0.16972139028373787
+  rotation 0 1 0 1.57
+  name "e-puck1(3)"
+  controller "my_controller_original_4"
+}
+Solid {
+  translation 0.3500000000000001 0.05 0.3500000000000002
+  children [
+    DEF CUBE-yellow Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 1 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  boundingObject USE CUBE-yellow
+}
+Solid {
+  translation 0.3500000000000001 0.05 -0.34
+  children [
+    DEF CUBE-red Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE CUBE-red
+}
+Solid {
+  translation -0.34000000000000014 0.05 -0.3399999999999999
+  children [
+    DEF CUBE-blue Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 0 1
+        }
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE CUBE-blue
+}
+Solid {
+  translation -0.35000000000000014 0.05 0.3400000000000002
+  children [
+    DEF CUBE-green Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 1 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE CUBE-green
+}
