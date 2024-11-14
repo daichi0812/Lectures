@@ -1,0 +1,7 @@
+sake_warehouse_problem:
+  stage: test
+  script:
+    - gradle test
+  artifacts:
+    reports:
+      junit: build/test-results/test/**/TEST-*.xml
