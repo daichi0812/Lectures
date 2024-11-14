@@ -1,0 +1,13 @@
+read 14 records
+Outlook rain 5
+Outlook overcast 4
+Outlook sunny 5
+Temperature mild 6
+Temperature cool 4
+Temperature hot 4
+Humidity normal 7
+Humidity high 7
+Windy false 8
+Windy true 6
+Class play 9
+Class not_play 5

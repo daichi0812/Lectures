@@ -1,0 +1,15 @@
+Outlook Temperature Humidity Windy Class
+sunny hot high false not_play
+sunny hot high true not_play
+overcast hot high false play
+rain mild high false play
+rain cool normal false play
+rain cool normal true not_play
+overcast cool normal true play
+sunny mild high false not_play
+sunny cool normal false play
+rain mild normal false play
+sunny mild normal true play
+overcast mild high true play
+overcast hot normal false play
+rain mild high true not_play

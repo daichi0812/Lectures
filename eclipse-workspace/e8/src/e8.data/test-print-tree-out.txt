@@ -1,0 +1,21 @@
+read 14 records
+  preInfo: 0.940
+    gain for Outlook: 0.247
+    gain for Temperature: 0.029
+    gain for Humidity: 0.152
+    gain for Windy: 0.048
+  preInfo: 0.971
+    gain for Temperature: 0.571
+    gain for Humidity: 0.971
+    gain for Windy: 0.020
+  preInfo: 0.971
+    gain for Temperature: 0.020
+    gain for Humidity: 0.020
+    gain for Windy: 0.971
+Outlook = sunny
+|   Humidity = high: not_play
+|   Humidity = normal: play
+Outlook = overcast: play
+Outlook = rain
+|   Windy = false: play
+|   Windy = true: not_play

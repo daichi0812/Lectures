@@ -1,0 +1,4 @@
+The average score of Taro: 87.33
+The average report score of Taro: 58.89
+The maximun score of Taro: 99 [CC]
+The minimum score of Taro: 60 [DD]

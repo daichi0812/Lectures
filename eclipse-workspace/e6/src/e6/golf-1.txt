@@ -1,0 +1,14 @@
+sunny hot high high notPlay
+sunny hot high high notPlay
+cloudy hot high high Play
+rainy warm high high Play
+rainy cool normal normal Play
+rainy cool normal normal notPlay
+cloudy cool normal normal Play
+sunny warm high high notPlay
+sunny cool normal normal Play
+rainy warm normal normal Play
+sunny warm normal normal Play
+cloudy warm high high Play
+cloudy hot normal normal Play
+rainy warm high high notPlay

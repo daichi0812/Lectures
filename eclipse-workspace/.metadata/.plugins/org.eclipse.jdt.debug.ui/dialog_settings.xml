@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e3/src&amp;lt;score{SubjectScore.java[SubjectScore&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e7/src&amp;lt;e7{Exercise7_2_Tests.java[Exercise7_2_Tests&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=p8/src&amp;lt;p8{SimpleDT.java[SimpleDT&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e9/src&amp;lt;task9_2{Matrix.java[Matrix&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e9/src&amp;lt;task9_1{Matrix.java[Matrix&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e9/src&amp;lt;task9_4{Matrix.java[Matrix&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e9/src&amp;lt;task9_3{Matrix.java[Matrix&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e10/src&amp;lt;task10_3{Plot2D.java[Plot2D&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e11/src&amp;lt;task11_1{LinearSolver.java[LinearSolver&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e11/src&amp;lt;task11_2{LinearSolver.java[LinearSolver&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e11/src&amp;lt;task11_3{LinearSolver.java[LinearSolver&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e11/src&amp;lt;task11_3{Matrix.java[Matrix&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e11/src&amp;lt;task11_4{Matrix.java[Matrix&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=e13/src&amp;lt;task13_2{Plot2D.java[Plot2D&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="560"/>
+			<item key="DIALOG_Y_ORIGIN" value="186"/>
+			<item key="DIALOG_FONT_NAME" value="1|Yu Gothic UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Yu Gothic UI"/>
+		</section>
+	</section>
+</section>

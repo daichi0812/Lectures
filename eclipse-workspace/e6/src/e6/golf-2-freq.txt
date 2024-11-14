@@ -1,0 +1,3 @@
+Information source: golf-2.txt
+Frequency of "Play": 9
+Frequency of "notPlay": 5

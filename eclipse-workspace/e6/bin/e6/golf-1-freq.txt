@@ -1,0 +1,11 @@
+Information source: golf-1.txt
+Frequency of "cloudy": 4
+Frequency of "Play": 9
+Frequency of "rainy": 5
+Frequency of "normal": 14
+Frequency of "high": 14
+Frequency of "warm": 6
+Frequency of "notPlay": 5
+Frequency of "cool": 4
+Frequency of "sunny": 5
+Frequency of "hot": 4

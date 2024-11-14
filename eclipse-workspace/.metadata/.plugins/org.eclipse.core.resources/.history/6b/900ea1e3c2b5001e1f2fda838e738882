@@ -1,0 +1,177 @@
+package task14_1;
+
+public class EigenSolver {
+	private Vector eigen_values; //固有値 x
+	private Matrix eigen_vectors; //固有ベクトル r
+	private int max_iter = 100;
+	private static final double EPS = 1e-10;
+	
+	public EigenSolver() {
+
+	}
+	
+	// jacobi_method
+	public void solve(Matrix matrix) {
+		if(!matrix.isSymmetric()) {
+			System.err.println("Input matrix is not symmetric.");
+			System.exit(1);
+		}
+		
+		int n = matrix.data.length;
+		int m = 0,k = 0; //index of rotated elements
+		int it; //iteration counter
+		int i, j;
+		double s; //the maximum element
+		double t, u;
+		Vector a_row_k = new Vector(n);
+		Vector a_row_m = new Vector(n);
+		Vector a_col_k = new Vector(n);
+		Vector a_col_m = new Vector(n);
+		double xkk, xkm, xmk, xmm, cos_t, sin_t;
+		
+		eigen_values = new Vector(matrix.data.length);
+		eigen_vectors = new Matrix(matrix.data.length, matrix.data.length);
+		
+		// initialize eigenvalues  and eigenvector
+		for(i = 0; i < n; i++) {
+			for(j = 0; j < n; j++) {
+				eigen_vectors.data[i][j] = 0.0;
+			}
+			eigen_vectors.data[i][i] = 1.0;
+		}
+		
+		// repeat until all no diagonal elements are zero
+		for(it = 0; it < max_iter; it++) {
+			//check ending condition (whether A*x is zero or not),
+			//and find the maximum element a[m][k];
+			s = EPS;
+			for(i = 0; i < n; i++) {
+				for(j = i + 1; j < n + 1; j++) {
+					if(Math.abs(matrix.data[i][j]) > s) {
+						s = Math.abs(matrix.data[i][j]);
+						k = i;
+						m = j;
+					}
+				}
+			}
+			if(s == EPS) {
+				for (i = 0; i < matrix.data.length; i++) {
+					eigen_values.set(i, matrix.data[i][i]);
+				}
+				return;
+			}
+			// calcurate rotation parameter t(theta), cos(t), and sint(t)
+			if(Math.abs(matrix.data[k][k] - matrix.data[m][m]) < EPS) { //theta is PI
+				cos_t = 1 / Math.sqrt(2.0);
+				sin_t = matrix.data[k][m] > 0.0 ? 1.0 / Math.sqrt(2.0) 
+						: -1.0 /Math.sqrt(2.0);
+			}else {
+				t = (2.0 * matrix.data[k][m])
+						/ (matrix.data[k][k] - matrix.data[m][m]);
+				u = Math.sqrt(1.0 + t * t);
+				cos_t = Math.sqrt((1.0 + u) / (2.0 * u));
+				sin_t = Math.sqrt((-1.0 + u) / (2.0 * u)) *
+						(t > 0.0 ? 1.0 : -1.0);
+			}
+			
+			//apply EigenVector' * Matrix * EigenVector
+			for(j = 0; j < n; j++) {
+				a_row_k.set(j, matrix.data[k][j] * cos_t +
+						matrix.data[m][j] * sin_t);
+				a_row_m.set(j, -1.0 * matrix.data[k][j] * sin_t +
+						matrix.data[m][j] * cos_t);
+			}
+			for(i = 0; i < n; i++) {
+				a_col_k.set(i, matrix.data[i][k] * cos_t +
+						matrix.data[i][m] * sin_t);
+				a_col_m.set(i,  -1.0 * matrix.data[i][k] * sin_t +
+						matrix.data[i][m] * cos_t);
+			}
+			a_col_k.set(k, matrix.data[k][k] * cos_t * cos_t
+					+ matrix.data[k][m] * cos_t + sin_t
+					+ matrix.data[m][k] * cos_t * sin_t
+					+ matrix.data[m][m] * sin_t * sin_t);
+			a_col_m.set(m, matrix.data[k][k] * sin_t * sin_t
+					- matrix.data[m][k] * cos_t * sin_t
+					- matrix.data[k][m] * cos_t * sin_t
+					+ matrix.data[m][m] * cos_t * cos_t);
+			a_col_k.set(m,  0.0);
+			a_col_m.set(k,  0.0);
+			for(j = 0; j < n; j++) {
+				matrix.data[k][j] = a_row_k.get(j);
+				matrix.data[m][j] = a_row_m.get(j);
+			}
+			for(i = 0; i < n; i++) {
+				matrix.data[i][k] = a_col_k.get(i);
+				matrix.data[i][m] = a_col_m.get(i);
+			}
+			
+			// apply X*R
+			for(i = 0; i < n; i++) {
+				a_col_k.set(i, eigen_vectors.data[i][k] * cos_t +
+						eigen_vectors.data[i][m] * sin_t);
+				a_col_m.set(i,  -1.0 * eigen_vectors.data[i][k] * sin_t
+						+ eigen_vectors.data[i][m] * cos_t);
+			}
+			for( i = 0; i < n; i++) {
+				eigen_vectors.data[i][k] = a_col_k.get(i);
+				eigen_vectors.data[i][m] = a_col_m.get(i);
+			}
+		}
+		
+	}
+	
+	public Vector getEigenValues() {
+		return eigen_values;
+	}
+	
+	public Matrix getEigenVectors() {
+		return eigen_vectors;
+	}
+	
+	public double getEigenValue(int i) {
+		return eigen_values.get(i);
+	}
+	
+	public Vector getEigenVector(int i) {
+		Vector eigen_vector = new Vector(eigen_vectors.data.length);
+        for (int j = 0; j < eigen_vectors.data.length; ++j) {
+            eigen_vector.set(j, eigen_vectors.data[i][j]);
+        }
+
+        return eigen_vector;
+	}
+
+	public static void main(String[] args) {
+		Matrix A = new Matrix(args[0]);
+		EigenSolver solver = new EigenSolver();
+		
+//		System.out.println("入力行列の確認");
+//		for(int i = 0; i < A.data.length; i++) {
+//			for(int j = 0; j < A.data.length; j++) {
+//				System.out.printf("%f  ", A.data[i][j]);
+//			}
+//			System.out.println();
+//		}
+		
+		solver.solve(A);
+		
+		Matrix eye = Matrix.eye(A.rows());
+		
+		for(int i = 0; i < A.rows(); ++i) {
+			System.out.println("===========     " +"lambda" 
+					+ (i + 1) + "     ===========");
+			Matrix m = Matrix.sub(A,
+					Matrix.mul(solver.getEigenValue(i), eye));
+			m.show("A - lambda * I");
+			System.out.println("det(A - lambda * I)=" + m.det());
+			Vector d = Matrix.dot(m, solver.getEigenVector(i));
+			d.show("(A - lambda * I)x");
+		}
+		
+		solver.getEigenValues().writeToFile(args[1]);
+		solver.getEigenVectors().writeToFile(args[1], true);
+
+	}
+
+}
