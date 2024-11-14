@@ -1,0 +1,1 @@
+@def size= $glob 134_567 # not real Ruby

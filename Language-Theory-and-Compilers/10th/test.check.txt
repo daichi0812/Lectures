@@ -1,0 +1,17 @@
+Result is 5
+Result is 5.5
+Result is 41.23
+Result is 5+7i
+Result is 496+239.8i
+Result is 15+2i
+Result is 5+7i
+Result is -10+10i
+Result is 0.7+0.1i
+Result is 0.7+0.1i
+Result is 0.58-0.14i
+Result is -12+5i
+Result is 0.413395-0.997691i
+statement error
+Result is 15.35i
+statement error
+Result is 4+15.5i

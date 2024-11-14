@@ -1,0 +1,27 @@
+
+
+<%  #filePath = Rails.root.join('Users', 'daichi', 'Engineer', 'lectures', 'Projects-inpInformation-Technology-2', 'webrick', 'httpd_root', '4D_your_idea_goes_here.html.erb'); 
+
+    lines = File.readlines("/httpd_root/about_CSS.html")
+
+    # 各行に含まれる単語を配列に保存する。
+    words_in_lines = lines.map do |line| # words_in_lines は配列の配列
+        line.scan(/\w+/)
+    end
+
+    # ↑ 例えば、一行目に"Hello, World"、二行目に"This is a test"だとすると
+    # words_in_lines = {{"Hello", "World"}, {"This", "is", "a", "test"}}となる
+
+    # 配列の配列である words_in_lines を一つの配列にまとめる(平坦化)。
+    words = words_in_lines.flatten; # ex) words = {"Hello", "World", "This", "is", "a", "test"}
+
+    # 'apple' 単語の出現回数をマッピング
+    word_counts = words.map do |text|
+        # 文中の 'apple' という単語の出現回数をカウント
+        text.downcase.scan(/\b#{word}\b/).size
+    end
+
+   
+%>
+
+<%= word %> appears <%= word_counts%>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<%
+    # 15822108
+    # 情報テクノロジー
+    # 堀田大智
+%>
+<%
+    require 'active_record'
+
+    ActiveRecord::Base.establish_connection(
+        :adapter => "sqlite3",
+        :database => "sumo.sqlite3"
+    )
+
+    class Wrestler < ActiveRecord::Base
+    end
+
+    # ソートパラメータの取得
+    sort_order = servlet_request.query['sort']
+    sort_order_division = servlet_request.query['sort_division']
+    sort_order_stable = servlet_request.query['sort_stable']
+    
+
+    # 操作
+    overall_number = Wrestler.count
+    height_ave = Wrestler.average(:height).to_f.round(1)
+    height_max = Wrestler.maximum(:height).to_f.round(1)
+    height_min = Wrestler.minimum(:height).to_f.round(1)
+    height_sum = Wrestler.sum(:height).to_f.round(1)
+    weight_ave = Wrestler.average(:weight).to_f.round(1)
+    weight_max = Wrestler.maximum(:weight).to_f.round(1)
+    weight_min = Wrestler.minimum(:weight).to_f.round(1)
+    weight_sum = Wrestler.sum(:weight).to_f.round(1)
+
+    # 区分ごとの統計
+    divisions = Wrestler.select(:highest_division).distinct.pluck(:highest_division) # 重複しない区分名のリストを取得
+    division_stats = divisions.map do |division|
+      wrestlers = Wrestler.where(highest_division: division) # 区分ごとに力士をフィルタリング
+      count = wrestlers.count # 該当区分の力士数をカウント
+      next if count == 0 # 力士数が0の場合は次へ
+      {
+        division: division,
+        count: count, 
+        height_ave: wrestlers.average(:height).to_f.round(1),
+        weight_ave: wrestlers.average(:weight).to_f.round(1)
+      }
+    end.compact # nil値を取り除く
+
+    # 部屋ごとの統計
+    stables = Wrestler.select(:stable).distinct.pluck(:stable) # 重複しない部屋名のリストを取得
+    stable_stats = stables.map do |stable|
+      wrestlers = Wrestler.where(stable: stable) # 部屋ごとに力士をフィルタリング
+      count = wrestlers.count # 該当部屋の力士数をカウント
+      next if count == 0 # 力士数が0の場合は次へ
+      {
+        stable: stable,
+        count: count, 
+        height_ave: wrestlers.average(:height).to_f.round(1), 
+        weight_ave: wrestlers.average(:weight).to_f.round(1)
+      }
+    end.compact # nil値を取り除く
+
+     # ソート
+    sort_wrestlers = Wrestler.order(sort_order).limit(100)
+    sort_division_stats = division_stats.sort_by { |stats| stats[sort_order_division] }
+    sort_stable_stats = stable_stats.sort_by { |stats| stats[sort_order_stable] }
+%>
+
+<html lang='en-US'> 
+<head> 
+    <meta charset='utf-8'> 
+    <title>Wrestler Statistics Table!</title> 
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: darkblue;
+        }
+        p, h3 {
+            text-align: center;
+        }
+        table { 
+            width: 80%; 
+            margin: 30px 10% 100px 10%; 
+            border-collapse: collapse; 
+        } 
+        th, td { 
+            border: 2px solid skyblue; 
+            padding: 10px 20px 10px 20px; 
+            text-align: center; 
+        } 
+        tr:nth-child(even) { 
+            background-color: lightgray; 
+        } 
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        li {
+            display: inline;
+            margin: 0 10px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: skyblue;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: deepskyblue;
+        }
+    </style> 
+</head> 
+<body>
+    <h1>Wrestler Statistics Table!</h1>
+
+    <p>Overall number of wrestlers: <%= overall_number %></p>
+    <h3>Height</h3>
+    <p>Average: <%= height_ave %></p>
+    <p>maximum: <%= height_max %></p>
+    <p>minimum: <%= height_min %></p>
+    <p>sum: <%= height_sum %></p>
+    <h3>Weight</h3>
+    <p>Average: <%= weight_ave %></p>
+    <p>maximum: <%= weight_max %></p>
+    <p>minimum: <%= weight_min %></p>
+    <p>sum: <%= weight_sum %></p>
+    
+    <h3>Statistics by Division</h3>
+
+     <ul>
+        <li><a href="?sort_division=:division">Sort by Division</a></li>
+        <li><a href="?sort_division=:count">Sort by Nuimber of Wrestlers</a></li>
+        <li><a href="?sort_division=:height_ave">Sort by Average Height</a></li>
+        <li><a href="?sort_division=:weight_ave">Sort by Average Weight</a></li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>Division</th>
+            <th>Number of Wrestlers</th>
+            <th>Average Height</th>
+            <th>Average Weight</th>
+        </tr>
+        <% sort_division_stats.each do |stats| %>
+            <tr>
+                <td><%= stats[:division] %></td>
+                <td><%= stats[:count] %></td>
+                <td><%= stats[:height_ave] %></td> 
+                <td><%= stats[:weight_ave] %></td>
+            </tr>
+        <% end %>
+    </table>
+
+    <h3>Statistics by Stable</h3>
+
+    <ul>
+        <li><a href="?sort_stable=stable">Sort by Stable</a></li>
+        <li><a href="?sort_stable=count">Sort by Number of Wrestlers</a></li>
+        <li><a href="?sort_stable=height_ave">Sort by Average Height</a></li>
+        <li><a href="?sort_stable=weight_ave">Sort by Average Weight</a></li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>Stable</th>
+            <th>Number of Wrestlers</th>
+            <th>Average Height</th>
+            <th>Average Weight</th>
+        </tr>
+        <% sort_stable_stats.each do |stats| %>
+            <tr>
+                <td><%= stats[:stable] %></td>
+                <td><%= stats[:count] %></td> 
+                <td><%= stats[:height_ave] %></td>
+                <td><%= stats[:weight_ave] %></td> 
+            </tr>
+        <% end %>
+    </table>
+
+    <h3>Statistics about 100 wrestlers</h3>
+
+    <ul>
+        <li><a href="?sort=stable">Sort by Stable</a></li>
+        <li><a href="?sort=weight">Sort by Weight</a></li>
+        <li><a href="?sort=height">Sort by Height</a></li>
+        <li><a href="?sort=origin">Sort by Origin</a></li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>Stable</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Origin</th>
+        </tr>
+        <% sort_wrestlers.each do |wrestler| %>
+            <tr>
+                <td><%= wrestler.stable %></td>
+                <td><%= wrestler.weight %></td>
+                <td><%= wrestler.height %></td>
+                <td><%= wrestler.origin %></td>
+            </tr>
+        <% end %>
+    </table>
+    
+</body>
+</html>

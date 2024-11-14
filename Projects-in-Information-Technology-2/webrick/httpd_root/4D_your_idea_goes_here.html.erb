@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+
+<% 
+
+N = servlet_request.query["number"].to_f
+
+%>
+
+<html lang='en-US'> 
+<head> 
+    <meta charset='utf-8'> 
+    <title>Prime Numbers !</title> 
+    <style> 
+        * { 
+            font-family: 'Times New Roman', Times, serif; 
+        } 
+        h1 { 
+            margin-left: 10px; 
+            text-align: center 
+        } 
+        p { 
+            font-size: 1.4em; 
+            text-align: center;
+        } 
+        table { 
+            width: 40%;
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse; 
+        } 
+        td { 
+            border: 2px solid dodgerblue; 
+            padding: 10px 20px 10px 20px; 
+            text-align: center; 
+            color: green;
+        } 
+        tr:nth-child(even) { 
+            background-color: lightgray; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h1>Prime Numbers !</h1> 
+    <p>When you type natural number in "URL?number=HERE", this page displays N * N prime numbers.
+    <table> 
+        <% 
+            count = 0
+            k = 2
+            data = []
+
+            while count < N * N
+                is_prime = true
+
+                (2...k).each do |i|
+                    if k % i == 0
+                    is_prime = false
+                    break
+                end
+            end
+
+            if is_prime
+                data << k
+                count += 1
+            end
+  
+            k += 1
+            end
+         %>
+         <% l = 0; %>
+        <% for i in 0...N %>
+            <tr> 
+                <% for j in 0...N%>
+                    <td><%= data[l] %></td> 
+                    <% l += 1 %>
+                <%end%>
+            </tr> 
+        <% end %>
+        <%if N < 2 || N.nil?%>
+            <p>Enter a natural number greater than or equal to 2.</p>
+        <% end %>
+    </table> 
+</body> 
+</html> 

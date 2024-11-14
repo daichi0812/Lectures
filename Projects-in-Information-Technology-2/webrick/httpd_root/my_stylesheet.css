@@ -1,0 +1,49 @@
+* {
+    font-size: 11px;
+}
+
+body h2 {
+    font-size: 120%
+}
+
+h1 {
+    color: rebeccapurple;
+    font-size: 1.6em;
+}
+
+h2 {
+    color: darkolivegreen;
+}
+
+nav {
+    position: fixed;
+    width: 34%;
+    left: 0;
+}
+
+body {
+    position: relative;
+    left: 34%;
+    width: 65%;
+}
+
+aside {
+    float: right;
+    width: 40%;
+    margin: 6% 6% 6% 6%;
+    border: 3px solid #F82;
+    padding: 6px;
+}
+
+a:link {
+    color: midnightblue;
+}
+
+a:visited {
+    color: paleturquoise;
+}
+
+table, th, td {
+    border: solid;
+    border-collapse: collapse;
+}
