@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:icon="@android:drawable/ic_menu_preferences"
+        app:showAsAction="ifRoom|withText" />
+
+    <item android:id="@+id/action_edit" android:title="@string/action_edit"
+        android:icon="@android:drawable/ic_menu_edit"
+        app:showAsAction="ifRoom|withText" />
+
+    <item android:id="@+id/action_open" android:title="OPEN"
+        android:icon="@android:drawable/ic_menu_view"
+        app:showAsAction="ifRoom|withText" />
+
+    <item android:id="@+id/action_save" android:title="@string/action_save"
+        android:icon="@android:drawable/ic_menu_save"
+        app:showAsAction="ifRoom|withText" />
+</menu>

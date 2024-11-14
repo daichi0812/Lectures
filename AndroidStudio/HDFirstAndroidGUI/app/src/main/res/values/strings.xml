@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">HD First Android GUI</string>
+    <string name="btn1_text">HD First Button</string>
+    <string name="btn2_text">HD Second Button</string>
+    <string name="action_settings">SETTINGS</string>
+    <string name="action_edit">EDIT</string>
+    <string name="action_preview">PREVIEW</string>
+    <string name="action_save">SAVE</string>
+
+    <!-- 電話番号の種類選択のための配列 -->
+    <string-array name="phone_type_array">
+        <item>Home</item>
+        <item>Work</item>
+        <item>Mobile</item>
+        <item>Other</item>
+    </string-array>
+
+</resources>
