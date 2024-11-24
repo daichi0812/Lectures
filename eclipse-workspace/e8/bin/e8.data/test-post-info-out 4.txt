@@ -1,0 +1,5 @@
+read 14 records
+Outlook postInfo 0.694
+Temperature postInfo 0.911
+Humidity postInfo 0.788
+Windy postInfo 0.892

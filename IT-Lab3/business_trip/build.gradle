@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.kie:kie-api:7.74.1.Final'
+    implementation 'org.drools:drools-compiler:7.74.1.Final'
+    implementation 'org.drools:drools-mvel:7.74.1.Final'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.16'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

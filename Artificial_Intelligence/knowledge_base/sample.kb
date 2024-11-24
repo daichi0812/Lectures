@@ -1,0 +1,29 @@
+knowledge_base_name: Sample
+author: Takeshi Morita
+description: A sample knowledge base for learning conflict resolution.
+alias_set:
+fact_set:
+- A=true
+- C=true
+- F=true
+
+rule_base: |
+  Rule1: IF A==true
+         AND F==true
+         THEN D=true
+         THEN output=Rule1 is fired. Add D=true to the working memory.
+
+  Rule2: IF A==true
+         AND B==true
+         THEN G=true
+         THEN output=Rule2 is fired. Add G=true to the working memory.
+
+  Rule3: IF A==true
+         AND C==true
+         AND F==true
+         THEN B=true
+         THEN output=Rule3 is fired. Add B=true to the working memory.
+
+  Rule4: IF B==true
+          THEN E=true
+          THEN output=Rule4 is fired. Add E=true to the working memory.

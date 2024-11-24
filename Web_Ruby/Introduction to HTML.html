@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+  <head>
+    <meta charset="utf-8">
+    <title>Introduction to HTML</title>
+    <link rel="stylesheet" href='my_stylesheet2.css'>
+  </head>
+
+  <body>
+    <header>
+      <h2>Projects in Information Technology II Resources:
+        <a href="about_HTML.html">HTML</a>, <a href="about_CSS.html">CSS</a></h2>
+    </header>
+    <nav>
+      <h2>Table of Contents</h2>
+      <ul>
+        <li><a href="#purpose">Purpose</a></li>
+        <li><a href="#example">A Simple Example</a></li>
+        <li><a href="#structure">Overall Structure</a></li>
+        <li><a href="#syntax">Basic Systax</a></li>
+        <li><a href="#block">Block-Level Elements</a></li>
+        <li><a href="#inline">Inline Elements</a></li>
+        <li><a href="#validation">Validation</a></li>
+      </ul>
+    </nav>
+
+    <h1>Introduction to HTML</h1>
+  
+    <p>This document gives an introduction to HTML, the Hypertext Markup Language,
+    including its purpose and structure, and some details about elements and
+    attributes.</p>
+
+    <section>  
+      <h2 id="purpose">Purpose</h2>
+      
+      <p><abbr title="Hypertext Markup Language">HTML</abbr> is the
+      <em title='マークアップ言語'>markup language</em> used to describe Web pages.
+      Most of the Web pages on the Web are written in HTML.
+      HTML is <strong>not</strong> a programming language, although
+      it may contain pieces of program code.</p>
+      
+      <p>A markup language is a digital format that adds marks to a document. These
+      marks show the <em title='文書構造'>document structure</em> and indicate the roles
+      of each of the document's parts. Adding such marks to a document is called
+      <em title='マーク付け (する)'>to mark up</em> a document. There are many markup languages,
+      for many different kinds of document. But HTML is by far the most widely known
+      and used markup language.</p>
+      
+      <p>As the name Hypertext Markup Language indicates, hypertext is an important
+      part of HTML. Hypertext means that an HTML document can link to other Web
+      documents, and can also include other documents, in particular images.</p>
+      
+      <p>HTML only gives the structure of a document and the role of each of its
+      parts. It does <strong>not</strong> say anything about a document's
+      presentation or <em title='スタイル'>style</em>. So the color of the text and the
+      background, the size of the text, the space between lines and <em title='段落'>paragraphs</em>,
+      the left and right margin, and many other details cannot be specified with HTML
+      alone. This is what <abbr title="Cascading Style Sheets">CSS</abbr> is
+      for. This is why a simple HTML document, without CSS, will look quite
+      boring.</p>
+      
+      <p>An HTML document can be viewed in two different ways: As
+      <em title='プレーンテキスト・平文'>plain text</em> source or in a specialized viewer.
+      The specialized viewers used for HTML are called <em title='ブラウザ・閲覧ソフト'>browsers</em>.
+      You are probably using a browser every day to view Web pages written in HTML.
+      You can view and edit a Web page as plain text source by opening the file with a
+      <em title='プレーンテキストエディタ'>plain text editor</em>. You can also view
+      the HTML source of a Web page by pressing <kbd>Ctrl-U</kbd> in a browser.
+      Looking at the source of actual Web pages these days may be confusing, because
+      they contain a lot of confusing details, but they are still HTML.</p>
+    </section>
+
+    <aside>
+      <h3>HTML History</h3>
+      
+      <p>Already the first Web page was written in HTML, but this HTML was much
+      simpler than what we have today.
+      <a href='https://en.wikipedia.org/wiki/Tim_Berners-Lee'>Tim Berners-Lee</a>
+      invented the <abbr title="World Wide Web">WWW</abbr> more than 30 years ago, in 1989.
+      This included HTML. HTML was based on earlier work at IBM that produced
+      <abbr title="Standard Generalized Mark-up Language">SGML</abbr>. Very early
+      versions are sometimes know as HTML 1. HTML 2 was published in November 1995 as
+      <a href="https://datatracker.ietf.org/doc/html/rfc1866">RFC 1866</a>.
+      Internationalization of HTML 2 was achieved by
+      <a href="https://datatracker.ietf.org/doc/html/rfc2070">RFC 2070</a>,
+      with the <a href="#duerst">author of this document</a> as a coauthor.</p>
+      
+      <p>The open work modus of the
+      <abbr title="Internet Engineering Task Force">IETF</abbr> turned out to not be
+      suited to solve conflicts between Netscape and Microsoft in the first browser wars.
+      Work behind the scenes at the <abbr title="World Wide Web Consortium">W3C</abbr>
+      resulted in <a href="https://www.w3.org/TR/2018/SPSD-html32-20180315/">HTML 3.2</a>
+      and later <a href="https://www.w3.org/TR/html4/">HTML 4.0</a>. Opposition to some of the
+      work on XHTML by browser makers led to the formation of the <a
+      href="https://whatwg.org/">WHATWG</a>, which produced HTML 5. Once the W3C also
+      adopted HTML 5, the WHATWG started to call their product just HTML, without any
+      version number. The WHATWG uses a "living standard" model for development.
+      Currently, the W3C and the WHATWG develop HTML together.</p>
+    </aside>
+
+    <section>
+      <h2 id="example">A Simple Example</h2>
+      
+      <p>This is the source of a very small HTML document:</p>
+      <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang='en-US'&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Simple Example Web Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Simple Example Web Page&lt;/h1&gt;
+    &lt;p&gt;This is a simple Web page.
+       You can use it as a start to make &lt;strong&gt;your own&lt;/strong&gt; Web page.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+      <p>You can put the above text into a file called <code>example.html</code> and
+      have a look at it in a browser.</p>
+    </section>
+  
+    <section>
+      <h2 id="structure">Overall Structure</h2>
+      
+      <p>As we can see from the above example, an HTML document starts with a
+      <em title='文書型宣言'>document type declaration</em> (<code>&lt;!DOCTYPE html&gt;</code>)
+      on the first line. Our example shows the
+      simplest document type declaration, which is used in modern versions of HTML.
+      After the document type declaration, the document consists of nested <em title='要素'>elements</em>.
+      The root element is the <code>html</code> element. Inside the <code>html</code>
+      element, there always is a <code>head</code> element followed by a <code>body</code>
+      element. These two elements in turn contain more elements.</p>
+      
+      <p>The <code>head</code> element contains information <strong>about</strong> the
+      document. The <code>meta</code> element indicates the character encoding of
+      the document. It is best to always use UTF-8, but if you use another character
+      encoding, make sure that you adjust this information.
+      Every HTML document has to have a <code>title</code> element. The
+      contents of the <code>title</code> element is displayed in the title bar of the
+      browser. Always make sure you have a good title, otherwise, your Web page can
+      look embarrassing.</p>
+      
+      <p>The <code>body</code> element contains the actual Web page itself. It can
+      contain <em title='見出し'>headers</em> of different levels. The <code>h1</code> element
+      indicates a level 1 (top level) header. There are also <code>h2</code>,
+      <code>h3</code>, <code>h4</code>, <code>h5</code>, and <code>h6</code>
+      elements, for lower-level headers.</p>
+      
+      <p>The <code>p</code> element marks up a paragraph. An average HTML document
+      has many paragraphs. The <code>strong</code> element indicates that its content
+      is strongly emphasized.</p>
+    </section>
+
+
+    <section>
+      <h2 id="syntax">Basic Syntax</h2>
+      
+      <p>The markup in an HTML document consists of elements.
+      Most elements have a <em title='開始タグ'>start tag</em>, <em title='内容'>contents</em>,
+      and an <em title='終了タグ'>end tag</em>. For the <code>h1</code> element,
+      <code>&lt;h1&gt;</code> is the start tag, <code>&lt;/h1&gt;</code> is the end tag,
+      and "Simple Example Web Page" is the contents. It is <strong>very important</strong>
+      to distingush between <em>elements</em> and <em title='タグ'>tags</em>.</p>
+      
+      <p>Elements can contain other elements. In our example, the <code>html</code>
+      element contains a <code>head</code> element and a <code>body</code> element,
+      the <code>head</code> element contains a <code>title</code> element, and so on.
+      Elements can also contain text (such as the <code>title</code>,
+      <code>h1</code>, and <code>strong</code> elements above), or a mixture of text
+      and other elements (such as the <code>p</code> element).</p>
+      
+      <p>Elements always have to be properly nested. This means that any
+      inner element has to end with an end tag before the outer element can be
+      closed. This is very similar to nesting of blocks, loops, and so on in a
+      programming language. It is usual to show this nesting by indenting for
+      <em title='ブロックレベルの要素'>block-level elements</em> (e.g. <code>h1</code>,
+      <code>p</code>), but not for <em title='インライン要素'>inline elements</em>
+      (e.g. <code>strong</code>).</p>
+      
+      <p>Between block-level or higher-level tags, white space is ignored. So we
+      could have started the document as
+      <code>&lt;html&gt;&lt;head&gt;&lt;title&gt;</code>…. But this would make the source
+      look very bad. Inline white space is collapsed to a single space. So we can have a line
+      break anywhere in a paragraph. White space means half-width spaces, tabs, and
+      line breaks, but not full-width spaces. For Japanese, more care may be needed
+      to avoid spurious spaces.</p>
+      
+      <aside>
+        <h3>HTML and XHTML</h3>
+      
+        <p>There are currently two different ways to write a Web page in HTML: As HTML
+        and as XHTML. XHTML is based on <abbr
+        title="Extensible Markup Language">XML</abbr> and has a very strict syntax. For
+        example, attribute values always have to be included in quotes. Also, attribute
+        names and element names have to be lower case. HTML is less strict. Validators
+        distinguish between these two modes, so don't mix them.</p>
+      </aside>
+
+      <p>Elements can have <em title='属性'>attributes</em> that provide additional
+      information. In our example, the <code>html</code> element has a <code>lang</code>
+      attribute. Attributes appear inside the start tag. They consist of an
+      <em title='属性名'>attribute name</em> (e.g. <code>lang</code>) and an
+      <em title='属性値'>attribute value</em> (e.g. <code>en</code>), separated by a <code>=</code> sign.
+      Here, the <code>lang</code> attribute indicates the natural language of the document,
+      US English (<code>en-US</code>). Attribute values should be enclosed in single or double
+      quotes. There are generic attributes such as <code>class</code>,
+      <code>dir</code> (direction), <code>id</code>, <code>lang</code> (language),
+      <code>style</code>, and <code>title</code>, which can appear on any element.
+      Other attributes can only appear on specific elements, such as the <code>href</code>
+      attribute on the <code>a</code> element.</p>
+      
+      <p>Characters in attribute values and textual content can be written directly,
+      or they can be written using <em>numeric character references</em>. As an
+      example, we can write the single-square character for the current Japanese era
+      令和 (i.e. &#x32FF;) as <code>&amp;#x32FF;</code>. Here, <code>&amp;#x</code> and
+      <code>;</code> are part of the numeric character reference syntax, and
+      <code>32FF</code> is the number of the character named <code>SQUARE ERA
+      NAME REIWA</code>. Such a notation will help as long as there is no font
+      or input support for this character. As a small exercise, try to write
+      your name with numeric character references.</p>
+      
+      <p>Because <code>&lt;</code>, <code>&gt;</code>, <code>'</code>,
+      <code>"</code>, and <code>&amp;</code> have special meanings in HTML documents,
+      they have to be escaped when they appear as ordinary characters in attribute
+      values or text. We can use numeric character references, or the specially
+      defined <em>character entities</em> <code>&amp;lt;</code>,
+      <code>&amp;gt;</code>, <code>&amp;apos;</code>, <code>&amp;quot;</code>, and
+      <code>&amp;amp;</code>.</p>
+    </section>
+
+    <section>
+      <h2 id="block">Block-Level Elements</h2>
+      
+      <p>Block-level elements are elements similar to paragraphs. Here is a table of
+      the most important HTML block-level elements.</p>
+      
+      <table>
+        <tbody>
+          <tr>
+            <th>Element Name</th>
+            <th>Start Tag</th>
+            <th>End Tag</th>
+            <th>Meaning/Usage</th>
+            <th>Additional Information</th>
+          </tr>
+          <tr>
+            <td><code>p</code></td>
+            <td><code>&lt;p&gt;</code></td>
+            <td><code>&lt;/p&gt;</code></td>
+            <td>paragraph</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>address</code></td>
+            <td><code>&lt;address&gt;</code></td>
+            <td><code>&lt;/address&gt;</code></td>
+            <td>contact information</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>aside</code></td>
+            <td><code>&lt;aside&gt;</code></td>
+            <td><code>&lt;/aside&gt;</code></td>
+            <td>content aside from the main flow of the document</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>blockquote</code></td>
+            <td><code>&lt;blockquote&gt;</code></td>
+            <td><code>&lt;/blockquote&gt;</code></td>
+            <td>quotation in block form</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>nav</code></td>
+            <td><code>&lt;nav&gt;</code></td>
+            <td><code>&lt;/nav&gt;</code></td>
+            <td>navigation (links)</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>header</code></td>
+            <td><code>&lt;header&gt;</code></td>
+            <td><code>&lt;/header&gt;</code></td>
+            <td>header of page or section</td>
+            <td>also <code>footer</code></td>
+          </tr>
+          <tr>
+            <td><code>section</code></td>
+            <td><code>&lt;section&gt;</code></td>
+            <td><code>&lt;/section&gt;</code></td>
+            <td>section, should start with a heading</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>pre</code></td>
+            <td><code>&lt;pre&gt;</code></td>
+            <td><code>&lt;/pre&gt;</code></td>
+            <td>preformatted text</td>
+            <td>e.g. source code</td>
+          </tr>
+          <tr>
+            <td><code>ol</code></td>
+            <td><code>&lt;ol&gt;</code></td>
+            <td><code>&lt;/ol&gt;</code></td>
+            <td>ordered (numbered) list</td>
+            <td>also <code>ul</code>, <code>li</code>, <code>dl</code>,
+              <code>dd</code>, <code>dt</code></td>
+          </tr>
+          <tr>
+            <td><code>div</code></td>
+            <td><code>&lt;div&gt;</code></td>
+            <td><code>&lt;/div&gt;</code></td>
+            <td>generic document division</td>
+            <td>use whenever there is nothing more appropriate</td>
+          </tr>
+          <tr>
+            <td><code>table</code></td>
+            <td><code>&lt;table&gt;</code></td>
+            <td><code>&lt;/table&gt;</code></td>
+            <td>table</td>
+            <td>also <code>tbody</code>, <code>tr</code>, <code>th</code>,
+              <code>td</code>,... </td>
+          </tr>
+          <tr>
+            <td><code>form</code></td>
+            <td><code>&lt;form&gt;</code></td>
+            <td><code>&lt;/form&gt;</code></td>
+            <td>form for data input</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>For more block-level elements, see the
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements#Elements">Mozilla
+      developer page</a>.</p>
+    </section>
+
+    <section>
+      <h2 id="inline">Inline Elements</h2>
+      
+      <p>There are many inline HTML elements. Here we list some important
+      inline elements:</p>
+      <dl>
+        <dt><code>a</code></dt>
+          <dd>anchor, used for links, with the <code>href</code> attribute</dd>
+        <dt><code>code</code></dt>
+          <dd>inline source code and similar text</dd>
+        <dt><code>em</code></dt>
+          <dd>emphasis</dd>
+        <dt><code>img</code></dt>
+          <dd>image, with the <code>source</code> and <code>alt</code> attributes
+            (the <code>alt</code> attribute is important for accessibility)</dd>
+        <dt><code>ruby</code></dt>
+          <dd>ruby annotations (furigana), also <code>rp</code> and
+          <code>rt</code></dd>
+        <dt><code>span</code></dt>
+          <dd>generic inline element, use if some markup is needed, but there is no
+            better element</dd>
+        <dt><code>strong</code></dt>
+          <dd>strong emphasis</dd>
+      </dl>
+      <p>For more inline elements, see the
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements#Elements">Mozilla
+      developer page</a>. There are some inline elements that should be avoided,
+      because they are presentational. Examples are <code>big</code>,
+      <code>b</code> (bold), <code>i</code> (italic), <code>small</code>, and
+      <code>u</code> (underline).</p>
+    </section>
+
+    <section>
+      <h2 id="validation">Validation</h2>
+      
+      <p>HTML pages should always be validated to make sure the syntax is correct.
+      Browsers tolerate some errors. But you do not want to produce HTML pages with
+      errors. So always validate your documents with the
+      <a href='https://validator.w3.org/#validate_by_upload'>W3C validator</a>.</p>
+    </section>
+    
+    <footer>
+      <p>© 2019-24 Martin J. Dürst</p>
+      <address>
+        <span id="duerst">Martin J. Dürst</span>, Aoyama Gakuin University,
+        Fuchinobe 5-10-1, Chuo-ku, Sagamihara 252-5258, <a
+        href="mailto:duerst@it.aoyama.ac.jp">duerst@it.aoyama.ac.jp</a> 
+      </address>
+    </footer>
+  </body>
+</html>

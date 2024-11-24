@@ -1,0 +1,135 @@
+knowledge_base_name: QA System
+author: 15822108_堀田大智
+description: question_answering_system
+alias_set:
+- はい=Yes,うん,そうです
+- いいえ=No,違います
+- 授業=講義
+- 学校=大学
+
+fact_set:
+- user_greeted=false
+- user_confirmed=false
+- question_answered=false
+- choose_lecture=false
+- choose_school=false
+- choose_brdf=false
+- choose_grp=false
+- choose_tsp=false
+- continue1=false
+- continue2=false
+
+rule_base: |
+  GreetUser: IF user_greeted==false
+             THEN output=こんにちは！私は簡単な質問に回答することができます。
+             THEN user_greeted=true
+
+  AskQuestion: IF user_greeted==true
+               AND question_answered==false
+               AND user_confirmed==false
+               THEN output=何について知りたいですか？以下から選んでください。<br>・この授業について（「授業」と入力）<br>・この学校について（「学校」と入力）<br>・BRDFについて（「BRDF」と入力）<br>・郵便配達員問題について（「郵便」と入力）<br>・巡回セールスマン問題について（「巡回」と入力）
+
+  LectureInfo: IF question_answered==false
+               AND input @> 授業
+               THEN output=この授業は「人工知能論」です。<br>人工知能の概要，歴史，基本的な理論と技術などが展開される授業です。
+               THEN choose_lecture=true
+               THEN question_answered=true
+
+  SchoolInfo: IF question_answered==false
+              AND input @> 学校
+              THEN output=この学校の名前は青山学院大学です。<br>キャンパスは渋谷と相模原にあります。
+              THEN choose_school=true
+              THEN question_answered=true
+
+  BRDFInfo: IF question_answered==false
+            AND input @> BRDF
+            THEN output=BRDFは物体表面に当たる光の反射特性を示します。
+            THEN choose_brdf=true
+            THEN question_answered=true
+
+  GRPInfo: IF question_answered==false
+            AND input @> 郵便
+            THEN output=以下のようにグラフによる定義がされます<br>「全ての辺を含む閉じた歩道のうち重みの和が最小となるもの」
+            THEN choose_grp=true
+            THEN question_answered=true
+
+  TSPInfo: IF question_answered==false
+           AND input @> 巡回
+           THEN output=以下のようにグラフによる定義がされます<br>「重み付き完全グラフで、重みの総和が最小となるハミルトン閉路」
+           THEN choose_tsp=true
+           THEN question_answered=true
+
+  ConfirmContinue1: IF question_answered==true
+                    AND user_confirmed==false
+                    AND continue1==false
+                    THEN output=他に質問がありますか？（はい/いいえ）
+                    THEN user_confirmed=true
+                    THEN continue1=true
+
+  RestartQuestion1-1: IF user_confirmed==true
+                      AND choose_lecture==true
+                      AND input @> はい
+                      THEN output=何について知りたいですか？以下から選んでください。<br>・この学校について（「学校」と入力）<br>・BRDFについて（「BRDF」と入力）<br>・郵便配達員問題について（「郵便」と入力）<br>・巡回セールスマン問題について（「巡回」と入力）
+                      THEN question_answered=false
+                      THEN user_confirmed=false
+
+  RestartQuestion1-2: IF user_confirmed==true
+                      AND choose_school==true
+                      AND input @> はい
+                      THEN output=何について知りたいですか？以下から選んでください。<br>・この授業について（「授業」と入力） <br>・BRDFについて（「BRDF」と入力）<br>・郵便配達員問題について（「郵便」と入力）<br>・巡回セールスマン問題について（「巡回」と入力）
+                      THEN question_answered=false
+                      THEN user_confirmed=false
+
+  RestartQuestion1-3: IF user_confirmed==true
+                      AND choose_brdf==true
+                      AND input @> はい
+                      THEN output=何について知りたいですか？以下から選んでください。<br>・この授業について（「授業」と入力）<br>・この学校について（「学校」と入力） <br>・郵便配達員問題について（「郵便」と入力）<br>・巡回セールスマン問題について（「巡回」と入力）
+                      THEN question_answered=false
+                      THEN user_confirmed=false
+
+  RestartQuestion1-4: IF user_confirmed==true
+                      AND choose_grp==true
+                      AND input @> はい
+                      THEN output=何について知りたいですか？以下から選んでください。<br>・この授業について（「授業」と入力）<br>・この学校について（「学校」と入力） <br>・BRDFについて（「BRDF」と入力）<br>・巡回セールスマン問題について（「巡回」と入力）
+                      THEN question_answered=false
+                      THEN user_confirmed=false
+
+  RestartQuestion1-5: IF user_confirmed==true
+                      AND choose_tsp==true
+                      AND input @> はい
+                      THEN output=何について知りたいですか？以下から選んでください。<br>・この授業について（「授業」と入力）<br>・この学校について（「学校」と入力） <br>・BRDFについて（「BRDF」と入力）<br>・郵便配達員問題について（「郵便」と入力）
+                      THEN question_answered=false
+                      THEN user_confirmed=false
+
+  ConfirmContinue2: IF question_answered==true
+                    AND user_confirmed==false
+                    AND continue1==true
+                    AND continue2==false
+                    THEN output=他に質問がありますか？（はい/いいえ）
+                    THEN user_confirmed=true
+                    THEN continue1=true
+                      
+　RestartQuestion2-1: IF user_confirmed==true
+                    AND choose_lecture==true
+                    AND choose_school==true
+                    AND input @> はい
+                    THEN output=何について知りたいですか？以下から選んでください。<br>・BRDFについて（「BRDF」と入力）<br>・郵便配達員問題について（「郵便」と入力）<br>・巡回セールスマン問題について（「巡回」と入力）
+                    THEN question_answered=false
+                    THEN user_confirmed=false
+  
+  EndConversation: IF user_confirmed==true
+                   AND input @> いいえ
+                   THEN output=ご利用ありがとうございました！またお会いしましょう。
+                   THEN user_greeted=false
+                   THEN user_confirmed=false
+                   THEN question_answered=false
+
+  RecommendActivity: IF question_answered==false
+                     AND input=="おすすめ"
+                     THEN output=青山学院大学の近くには素敵なカフェがありますよ！
+                     THEN question_answered=true
+
+  FunFact: IF question_answered==false
+           AND input=="豆知識"
+           THEN output=青山学院大学は創立1874年の歴史ある大学です。
+           THEN question_answered=true

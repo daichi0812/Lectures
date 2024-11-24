@@ -1,0 +1,147 @@
+knowledge_base_name: QA System
+author: 15822108_堀田大智
+description: question_answering_system
+alias_set:
+- はい,うん,そうです,Yes
+- いいえ,No,違います
+- 授業=講義
+- 学校=大学
+- 名前=氏名
+
+fact_set:
+- user_greeted=false
+- user_confirmed=false
+- question_answered=false
+- answer_name=true
+- user_name=""
+- user_location=""
+- user_hobby=""
+
+rule_base: |
+  GreetUser: IF user_greeted==false
+             THEN output=こんにちは！私は簡単な質問に回答することができます。
+             THEN user_greeted=true
+
+  AskQuestion: IF user_greeted==true
+               AND question_answered==false
+               THEN output=何について知りたいですか？以下から選んでください。<br> ・この授業について（「授業」と入力 ） <br> ・この学校について（「学校」と入力 ）<br> ・BRDFについて（「BRDF」と入力 ） <br> ・郵便配達員問題について（「郵便」と入力 ） <br> ・巡回セールスマン問題について（「巡回」と入力 ）
+
+  WeatherInfo: IF question_answered==false
+               AND input @> 授業
+               THEN output=この授業は「人工知能論」です。 <br> 人工知能の概要，歴史，基本的な理論と技術などが展開される授業です。
+               THEN question_answered=true
+
+  SchoolInfo: IF question_answered==false
+              AND input @> 学校
+              THEN output=この学校の名前は青山学院大学です。<br> キャンパスは渋谷と相模原にあります。
+              THEN question_answered=true
+
+  BRDFInfo: IF question_answered==false
+            AND input @> BRDF
+            THEN output=BRDFは物体表面に当たる光の反射特性を示します。
+            THEN question_answered=true
+
+  GRPInfo: IF question_answered==false
+            AND input @> 郵便
+            THEN output=以下のようにグラフによる定義がされます <br>　「全ての辺を含む閉じた歩道のうち重みの和が最小となるもの」
+            THEN question_answered=true
+  
+  TSRInfo: IF question_answered==false
+           AND input @> 巡回
+           THEN output= 以下のようにグラフによる定義がされます <br> 「重み付き完全グラフで、重みの総和が最小となるハミルトン閉路」
+           THEN question_answered=true
+
+  AskName: IF question_answered==false
+           AND answer_name==true
+           AND input @> 名前
+           THEN output=お名前は何ですか？
+           THEN question_answered=true
+           THEN answer_name=false
+
+  CaptureName: IF answer_name==false
+               AND question_answered==true
+               AND user_name==""
+               THEN user_name=input
+               THEN output=お名前 <%= user_name > を覚えました。
+               THEN question_answered=true
+               THEN answer_name=true
+
+  AskLocation: IF input=="場所"
+               AND question_answered==false
+               THEN output=どこに住んでいますか？
+               THEN question_answered=true
+
+  CaptureLocation: IF input!="場所"
+                   AND question_answered==true
+                   AND user_location==""
+                   THEN output="「input」にお住まいなのですね。覚えました。"
+                   THEN user_location=input
+                   THEN question_answered=true
+
+  HobbyInfo: IF input=="趣味"
+             AND question_answered==false
+             THEN output=趣味は何ですか？
+             THEN question_answered=true
+
+  CaptureHobby: IF input!="趣味"
+                AND question_answered==true
+                AND user_hobby==""
+                THEN output="「input」が趣味なのですね。覚えました。"
+                THEN user_hobby=input
+                THEN question_answered=true
+
+  PersonalGreet: IF user_name!=""
+                 AND question_answered==false
+                 THEN output="user_nameさん、何かお手伝いできることはありますか？"
+
+  WeatherByLocation: IF question_answered==false
+                     AND user_location!=""
+                     AND input @< 住所
+                     THEN output="あなたはuser_locationにお住まいです。"
+                     THEN question_answered=true
+
+  ConfirmContinue: IF question_answered==true
+                   AND user_confirmed==false
+                   THEN output=他に質問がありますか？（はい/いいえ）
+                   THEN user_confirmed=true
+
+  EndConversation: IF user_confirmed==true
+                   AND input @> いいえ
+                   THEN output=ご利用ありがとうございました！またお会いしましょう。
+                   THEN exit=true
+
+  RestartConversation: IF user_confirmed==true
+                       AND input @> はい
+                       THEN output=どんな質問でもどうぞ！
+                       THEN user_confirmed=false
+                       THEN question_answered=false
+
+  RecommendActivity: IF input=="おすすめ"
+                     AND question_answered==false
+                     THEN output="青山学院大学の近くには素敵なカフェがありますよ！"
+                     THEN question_answered=true
+
+  FunFact: IF input=="豆知識"
+           AND question_answered==false
+           THEN output=「青山学院大学は創立1874年の歴史ある大学です。」
+           THEN question_answered=true
+
+  FavoriteColor: IF input=="色"
+                 AND question_answered==false
+                 THEN output="好きな色を教えてください。"
+                 THEN question_answered=true
+
+  CaptureColor: IF input!="色"
+                AND question_answered==true
+                THEN output="「input」がお好きなのですね！覚えました。"
+                THEN question_answered=true
+
+  RepeatUserInput: IF input=="繰り返して"
+                  AND question_answered==false
+                  THEN output="何を繰り返して欲しいですか？"
+                  THEN question_answered=true
+
+  EchoUserInput: IF input!="繰り返して"
+                AND question_answered==true
+                THEN output="「input」とおっしゃいましたね！"
+                THEN question_answered=true

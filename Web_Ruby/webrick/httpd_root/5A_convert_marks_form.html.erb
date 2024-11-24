@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+
+<% exp = servlet_request.query['exponent'].to_f %>
+<% if exp.nil? || exp <= 0
+        exp = 0.5 
+    end%>
+
+<% def convert_mark(mark, exp)
+(mark**exp * (100.0/100**exp)).round
+end %>
+
+<html lang='en-US'> 
+<head> 
+    <meta charset='utf-8'> 
+    <title>Convert Marks!</title> 
+    <style> 
+        * { 
+            font-family: 'Times New Roman', Times, serif; 
+        } 
+        h1 { 
+            margin-left: 10px; 
+            text-align: center 
+        } 
+        p { 
+            font-size: 2.0em; 
+            margin-left: 10px;
+        } 
+        table { 
+            width: 30%; 
+            margin: 30px 20px 30px 500px; 
+            border-collapse: collapse; 
+        } 
+        th, td { 
+            border: 2px solid skyblue; 
+            padding: 10px 20px 10px 20px; 
+            text-align: center; 
+        } 
+        tr:nth-child(even) { 
+            background-color: lightgray; 
+        } 
+        form{
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+            width: 70%; 
+            font-size: 1.2em; 
+            padding: 20px; 
+        }
+        form div{
+            font-size: 1.2em;
+        }
+        input{
+            margin-left: 5px;
+        }
+        input[type="text"]{
+            width: 200px; /* 入力フィールドの幅 */
+            padding: 5px; /* 入力フィールドのパディング */
+            font-size: 1.0em;
+        }
+        input[type="submit"]{
+            padding: 5px 10px; /* 送信ボタンのパディング */
+            font-size: 1.0em; /* 送信ボタンのフォントサイズ */
+        }
+    </style> 
+</head> 
+<body> 
+    <h1>Convert marks!</h1> 
+    <p>Thre are 100 elements </p>
+    <form>
+        <div>
+            exponent
+            <label><input type="text" name="exponent" value=<%= exp%>></label>
+        </div>
+        <input type="submit" value="送信ボタン">
+    </form>
+    <table> 
+        <tr> 
+            <th>Before</th> 
+            <th>After</th> 
+        </tr> 
+        <% (0..100).each do |n| %>
+            <tr> 
+                <td><%= n %></td> 
+                <td><%= convert_mark(n, exp) %></td> 
+            </tr> 
+        <% end %>
+    </table> 
+    <p>This table shows points changes before and after .</p> 
+</body> 
+</html> 

@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+
+<% exp = servlet_request.query['exponent'].to_f %>
+<% if exp.nil? || exp <= 0
+        exp = 0.5 
+    end%>
+
+<% def convert_mark(mark, exp)
+(mark**exp * (100.0/100**exp)).round
+end %>
+
+<html lang='en-US'> 
+<head> 
+    <meta charset='utf-8'> 
+    <title>Convert Marks!</title> 
+    <style> 
+        * { 
+            font-family: 'Times New Roman', Times, serif; 
+        } 
+        h1 { 
+            margin-left: 10px; 
+            text-align: center 
+        } 
+        p { 
+            font-size: 2.0em; 
+            margin-left: 10px;
+        } 
+        table { 
+            width: 30%; 
+            margin: 30px 20px 30px 500px; 
+            border-collapse: collapse; 
+        } 
+        th, td { 
+            border: 2px solid blue; 
+            padding: 10px 20px 10px 20px; 
+            text-align: center; 
+        } 
+        tr:nth-child(even) { 
+            background-color: gray; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h1>Convert marks!</h1> 
+    <p>Thre are 100 elements </p>
+    <table> 
+        <tr> 
+            <th>Before</th> 
+            <th>After</th> 
+        </tr> 
+        <% (0..100).each do |n| %>
+            <tr> 
+                <td><%= n %></td> 
+                <td><%= convert_mark(n, exp) %></td> 
+            </tr> 
+        <% end %>
+    </table> 
+    <p>This table shows points changes before and after .</p> 
+</body> 
+</html> 

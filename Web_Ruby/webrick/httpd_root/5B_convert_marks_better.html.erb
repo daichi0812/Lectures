@@ -1,0 +1,162 @@
+<!DOCTYPE html> 
+
+<%  #宣言
+exp1 = servlet_request.query['exponent1'].to_f 
+exp2 = servlet_request.query['exponent2'].to_f 
+starting = servlet_request.query['start'].to_i
+stepping = servlet_request.query['step'].to_i
+ending = servlet_request.query['end'].to_i
+%>
+
+<%  #初期化
+if exp1.nil? || exp1 <= 0
+    exp1 = 0.5 
+end
+
+if exp2.nil? || exp2 <= 0
+    exp2 = 0.5 
+end
+
+if starting.nil? || starting <= 0
+    starting = 0;
+end
+
+if stepping.nil? || stepping <= 0
+    stepping = 1;
+end
+
+if ending.nil? || ending <= 0
+    ending = 100;
+end
+%>
+
+<% 
+def convert_mark1(mark, exp1)
+(mark**exp1 * (100.0/100**exp1)).round
+end 
+
+def convert_mark2(mark, exp2)
+(mark**exp2 * (100.0/100**exp2)).round
+end 
+%>
+
+<html lang='en-US'> 
+<head> 
+    <meta charset='utf-8'> 
+    <title>Convert Marks!</title> 
+    <style> 
+        * { 
+            font-family: 'Times New Roman', Times, serif; 
+        } 
+        h1 { 
+            margin-left: 10px; 
+            text-align: center 
+        } 
+        p { 
+            font-size: 2.0em; 
+            margin-left: 10px;
+        } 
+        table { 
+            width: 50%; 
+            margin: 30px 25% 30px 25%; 
+            border-collapse: collapse; 
+        } 
+        th, td { 
+            border: 2px solid skyblue; 
+            padding: 10px 20px 10px 20px; 
+            text-align: center; 
+            font-size: 1.1em;
+        } 
+        tr:nth-child(even) { 
+            background-color: lightgray; 
+        } 
+        form div{
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+            width: 70%; 
+            font-size: 1.2em; 
+            padding: 20px; 
+        }
+        form div{
+            font-size: 1.1em;
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px;
+        }
+        input{
+            margin-left: 5px;
+            margin-right: 10px;
+        }
+        input[type="text"]{
+            width: 200px; 
+            padding: 5px; 
+            font-size: 1.0em;
+            border: 1px solid #ccc; /* 境界線のスタイル */
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.2); /* 影の設定 */
+            border-radius: 15px;
+        }
+        input[type="submit"]{
+            margin-top: 18%;
+            padding: 5px 10px; 
+            font-size: 1.0em; 
+            border: 1px solid #ccc; /* 境界線のスタイル */
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.2); /* 影の設定 */
+            border-radius: 15px;
+        }
+    </style> 
+</head> 
+<body> 
+    <h1>Convert marks!</h1> 
+    <p>Thre are some elements you can set exponent and range in following text box </p>
+    <form>
+        <div>
+            <div>
+                exponent - 1
+                <input type="text" name="exponent1" value=<%= exp1 %>>
+            </div>
+            <div>
+                exponent - 2
+                <input type="text" name="exponent2" value=<%= exp2 %>>
+            </div>
+        </div>
+        <div>
+            start
+            <input type="text" name="start" value=<%= starting %>>
+        </div>
+        <div>
+            step
+            <input type="text" name="step" value=<%= stepping %>>
+        </div>
+        <div>
+            end
+            <input type="text" name="end" value=<%= ending %>>
+        </div>
+        <div>
+            <input type="submit" value="送信ボタン">
+        </div>
+    </form>
+    <table> 
+        <tr> 
+            <th>Before</th> 
+            <th>Exponent - 1</th>
+            <th>Exponent - 2</th>
+        </tr> 
+        <% (starting..ending).step(stepping).each do |n| %>
+            <tr> 
+                <td><%= n %></td> 
+                <td><%= convert_mark1(n, exp1) %></td> 
+                <td><%= convert_mark2(n, exp2) %></td>
+            </tr> 
+        <% end %>
+    </table> 
+    <p>This table shows points changes before and after ( exponent 1 and 2 ) .</p> 
+</body> 
+</html> 

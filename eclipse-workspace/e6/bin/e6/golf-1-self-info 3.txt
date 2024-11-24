@@ -1,0 +1,11 @@
+Information source: golf-1.txt
+Self-Information of "cloudy": 4.129
+Self-Information of "Play": 2.959
+Self-Information of "rainy": 3.807
+Self-Information of "normal": 2.322
+Self-Information of "high": 2.322
+Self-Information of "warm": 3.544
+Self-Information of "notPlay": 3.807
+Self-Information of "cool": 4.129
+Self-Information of "sunny": 3.807
+Self-Information of "hot": 4.129

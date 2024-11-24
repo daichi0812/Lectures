@@ -1,0 +1,72 @@
+knowledge_base_name: Quiz KB
+author: 15822108_堀田大智
+description: A knowledge base for Quiz.
+alias_set:
+- artificial_intelligence=Artificial_Intelligence
+- inference_engine=Inference_Engine,reasoner,Reasoner
+fact_set:
+- question_num=1
+- waiting_for_input=no
+- num_of_correct_answers=0
+- is_end=false
+rule_base: |
+  Rule1-1: IF question_num==1
+           AND waiting_for_input==no
+           THEN output=Q1. What does AI stand for?
+           THEN waiting_for_input=yes
+
+  Rule1-2: IF question_num==1
+           AND waiting_for_input==yes
+           AND input@>artificial_intelligence
+           THEN output=<font color="blue" size="6">Correct!!</font><br> Let's go to the next question.
+           THEN num_of_correct_answers+=1
+           THEN question_num=2
+           THEN waiting_for_input=no
+
+  Rule1-3: IF question_num==1
+           AND waiting_for_input==yes
+           THEN output=<font color="red" size="6">Incorrect!!</font><br> AI stands for <a href="https://en.wikipedia.org/wiki/Artificial_intelligence">Artificial Intelligence</a>. Let's go to the next question.
+           THEN question_num=2
+           THEN waiting_for_input=no
+
+  Rule2-1: IF question_num==2
+           AND waiting_for_input==no
+           THEN output=Q2. What is the component that derives new facts from the knowledge base in a production system?
+           THEN waiting_for_input=yes
+
+  Rule2-2: IF question_num==2
+           AND waiting_for_input==yes
+           AND input@>inference_engine
+           THEN output=<font color="blue" size="6">Correct!!</font><br>
+           THEN num_of_correct_answers+=1
+           THEN question_num=3
+           THEN waiting_for_input=no
+
+  Rule2-3: IF question_num==2
+           AND waiting_for_input==yes
+           THEN output=<font color="red" size="6">Incorrect!!</font><br> The answer is the inference engine. Please check the following configuration of the production system. <br><br><img src="./img/overview_of_production_system.png" width="400">
+           THEN question_num=3
+           THEN waiting_for_input=no
+
+  Rule3-1: IF question_num==3
+           AND waiting_for_input==no
+           THEN output=Q3. 流体力学における運動方程式は「〇〇方程式」である。〇〇に入る言葉は？（英語で答えよ）
+           THEN waiting_for_input=yes
+
+  Rule3-2: IF question_num==3
+           AND waiting_for_input==yes
+           AND input@>NavierStokes
+           THEN output=<font color="blue" size="6">正解!!</font><br>
+           THEN num_of_correct_answers+=1
+           THEN is_end=true
+           THEN waiting_for_input=no
+
+  Rule3-3: IF question_num==3
+           AND waiting_for_input==yes
+           THEN output=<font color="red" size="6">不正解</font><br> 答え. NavierStokes
+           THEN is_end=true
+           THEN waiting_for_input=no
+
+  Rule4: IF is_end==true
+           THEN output=You answered "num_of_correct_answers" question(s) correctly.
+           THEN output=Your score is "num_of_correct_answers" out of 3.

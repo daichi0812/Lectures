@@ -1,0 +1,534 @@
+#VRML_SIM R2019a utf8
+WorldInfo {
+  basicTimeStep 4
+}
+Viewpoint {
+  orientation 0.9999472980294544 -0.004061817447418632 -0.009428828273836771 5.268813715204575
+  position 0.010983828918050144 1.3908577102414965 0.8485636441334862
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 1.1 0.8
+  floorTileSize 0.2 0.2
+}
+E-puck {
+  translation 0.48975298335627154 0 0.31039010179712806
+  rotation 0 1 0 1.57
+  name "e-puck1"
+  controller "my_controller2_5"
+}
+Solid {
+  translation 0.4200000000000002 0.05 0.09999999999999996
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.2
+      }
+    }
+  ]
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.4200000000000002 0.05 -0.0374
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.075
+      }
+    }
+  ]
+  name "solid(19)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.35000000038359197 0.05 -0.07000000033564277
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.13
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.34999999971230633 0.05 0.06999999966435724
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.13
+      }
+    }
+  ]
+  name "solid(31)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.4200000000000002 0.05 -0.30000000000000016
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.2
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.2900000000000001 0.05 0.3
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.2
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.2900000000000001 0.05 -0.17000000000000012
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.19
+      }
+    }
+  ]
+  name "solid(20)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.14999999999999997 0.05 -0.1024
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.205
+      }
+    }
+  ]
+  name "solid(12)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.14999999999999997 0.05 0.09999999999999996
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.2
+      }
+    }
+  ]
+  name "solid(13)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.14999999999999997 0.05 0.2375
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.075
+      }
+    }
+  ]
+  name "solid(14)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.0524999996164083 0.05 -0.2700000002397448
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.205
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.16000000043154064 0.05 -0.2700000017261634
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.22
+      }
+    }
+  ]
+  name "solid(6)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.16000000110282628 0.05 -0.13000000172616308
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.22
+      }
+    }
+  ]
+  name "solid(26)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.04740000009589794 0.05 -0.1300000002397448
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.195
+      }
+    }
+  ]
+  name "solid(27)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.042400000383591714 0.05 0.26999999923281587
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.205
+      }
+    }
+  ]
+  name "solid(15)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.014800000335642726 0.05 0.13999999976025518
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.26
+      }
+    }
+  ]
+  name "solid(22)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.030000001726162774 0.05 -1.10282691659358e-09
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.08
+      }
+    }
+  ]
+  name "solid(24)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.16000000302078493 0.05 0.2699999982738363
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.2
+      }
+    }
+  ]
+  name "solid(16)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.1700000017261629 0.05 -1.7741126796810835e-09
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.2
+      }
+    }
+  ]
+  name "solid(28)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.33000000302078486 0.05 0.2699999974587037
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.14
+      }
+    }
+  ]
+  name "solid(17)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.34000000239744815 0.05 0.13999999741075475
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.14
+      }
+    }
+  ]
+  name "solid(18)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.3375 0.05 -2.39744831626032e-10
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.1349
+      }
+    }
+  ]
+  name "solid(29)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.4800000023974483 0.05 0.13999999673946945
+  rotation 0 1 0 1.5707963220000003
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.14
+      }
+    }
+  ]
+  name "solid(21)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.4100000000958982 0.05 -0.35000000359617356
+  rotation 0 1 0 3.141592644
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.1
+      }
+    }
+  ]
+  name "solid(7)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.41000000153436755 0.05 -0.20000000359617326
+  rotation 0 1 0 3.141592644
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.2
+      }
+    }
+  ]
+  name "solid(8)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.14999999875332662 0.05 -0.23495
+  rotation 0 1 0 3.141592644
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.0601
+      }
+    }
+  ]
+  name "solid(11)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.41000000306873474 0.05 -0.0476
+  rotation 0 1 0 3.141592644
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.105
+      }
+    }
+  ]
+  name "solid(30)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation -0.10999999932871449 0.05 0.06999999961640832
+  rotation 0 1 0 3.141592644
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.13
+      }
+    }
+  ]
+  name "solid(23)"
+  boundingObject USE CUBE
+}
+Solid {
+  translation 0.4200000000000002 0.05 0.3000000000000001
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.599145494773785 0.8204470893415732 0.6270237277790494
+        }
+      }
+      geometry Box {
+        size 0.01 0.1 0.2
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE CUBE
+}

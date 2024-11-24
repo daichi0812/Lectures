@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/daichi/Engineer/lectures/Language-Theory-and-Compilers",
+      "program": "/Users/daichi/Engineer/lectures/Language-Theory-and-Compilers/build/Debug/outDebug"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HD Sensor Monitor</string>
+    <string-array name="activities_array">
+        <item>歩行</item>
+        <item>階段昇降</item>
+        <item>起立着席</item>
+    </string-array>
+</resources>

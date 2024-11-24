@@ -1,0 +1,11 @@
+関数 : is_real()
+入力 : 非負実数かどうかわからない文字列
+出力 : 0か1
+1. is_int と同様の作業を行う
+2. if n[i]が数字。   	
+3. Yes → i++で2に戻る。	 	No → if n[i]がピリオド
+4. Yes → if n[1]～n[i]=='\0'が数字	No → ans=0
+5. Yes → if n[i+1]～n[i]=='\0'が数字	No → ans=0
+6. Yes →　ans=1			No → ans=0
+
+

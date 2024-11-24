@@ -1,0 +1,132 @@
+/* 15822108 情報テクノロジー学科 堀田大智 */
+package jp.ac.aoyama.it.it_lab_3.business_trip;
+
+import jp.ac.aoyama.it.it_lab_3.business_trip.BusinessTripModel;
+
+rule "国内日当計算1"
+    when
+        btm : BusinessTripModel(travelCategory == "国内", travelDays == 0, travelHours < 4)
+    then
+        btm.setDailyAllowance(0);
+        update(btm);
+end
+
+rule "国内日当計算2"
+    when
+        btm : BusinessTripModel(travelCategory == "国内", travelDays == 0, travelHours >= 4, location in ("東京都", "神奈川県", "千葉県", "埼玉県"))
+    then
+        btm.setDailyAllowance(1500);
+        update(btm);
+end
+
+rule "国内日当計算3"
+    when
+        btm : BusinessTripModel(travelCategory == "国内", travelDays == 0, travelHours >= 4, location not in ("東京都", "神奈川県", "千葉県", "埼玉県"))
+    then
+        btm.setDailyAllowance(3000);
+        update(btm);
+end
+
+rule "国内日当計算4"
+    when
+        btm : BusinessTripModel(travelCategory == "国内", travelDays > 0)
+    then
+        btm.setDailyAllowance(3000 * btm.getTravelDays());
+        update(btm);
+end
+
+rule "指定都市判定1"
+    when
+        btm : BusinessTripModel(travelCategory == "国外", location in ("シンガポール", "ロサンゼルス", "ニューヨーク", "サンフランシスコ", "ワシントン", "ジュネーブ", "ロンドン", "モスクワ", "パリ", "アブダビ", "ジッダ", "クウェート", "リヤド", "アビジャン"))
+    then
+        btm.setCityType("指定都市");
+        update(btm);
+end
+
+rule "指定都市判定2"
+    when
+        btm : BusinessTripModel(travelCategory == "国外", location not in ("シンガポール", "ロサンゼルス", "ニューヨーク", "サンフランシスコ", "ワシントン", "ジュネーブ", "ロンドン", "モスクワ", "パリ", "アブダビ", "ジッダ", "クウェート", "リヤド", "アビジャン"))
+    then
+        btm.setCityType("指定都市以外");
+        update(btm);
+end
+
+rule "国外日当計算1"
+    when
+        btm : BusinessTripModel(travelCategory == "国外", travelDays > 0, cityType == "指定都市", jobTitle == "教授")
+    then
+        btm.setDailyAllowance(6000 * btm.getTravelDays());
+        update(btm);
+end
+
+rule "国外日当計算2"
+    when
+        btm : BusinessTripModel(travelCategory == "国外", travelDays > 0, cityType == "指定都市以外", jobTitle == "教授")
+    then
+        btm.setDailyAllowance(5500 * btm.getTravelDays());
+        update(btm);
+end
+
+rule "国外日当計算3"
+    when
+        btm : BusinessTripModel(travelCategory == "国外", travelDays > 0, cityType == "指定都市", jobTitle in ("准教授", "助教", "助手"))
+    then
+        btm.setDailyAllowance(5500 * btm.getTravelDays());
+        update(btm);
+end
+
+rule "国外日当計算4"
+    when
+        btm : BusinessTripModel(travelCategory == "国外", travelDays > 0, cityType == "指定都市以外", jobTitle in ("准教授", "助教", "助手"))
+    then
+        btm.setDailyAllowance(5000 * btm.getTravelDays());
+        update(btm);
+end
+
+rule "国内外宿泊料計算"
+    when
+        btm : BusinessTripModel(numberOfNights == 0)
+    then
+        btm.setAccommodationFee(0);
+        update(btm);
+end
+
+rule "国内宿泊料計算"
+    when
+        btm : BusinessTripModel(travelCategory == "国内", numberOfNights > 0)
+    then
+        btm.setAccommodationFee(12000 * btm.getNumberOfNights());
+        update(btm);
+end
+
+rule "国外宿泊料計算1"
+    when
+        btm : BusinessTripModel(travelCategory == "国外", numberOfNights > 0, cityType == "指定都市", jobTitle == "教授")
+    then
+        btm.setAccommodationFee(21000 * btm.getNumberOfNights());
+        update(btm);
+end
+
+rule "国外宿泊料計算2"
+    when
+        btm : BusinessTripModel(travelCategory == "国外", numberOfNights > 0, cityType == "指定都市以外", jobTitle == "教授")
+    then
+        btm.setAccommodationFee(19000 * btm.getNumberOfNights());
+        update(btm);
+end
+
+rule "国外宿泊料計算3"
+    when
+        btm : BusinessTripModel(travelCategory == "国外", numberOfNights > 0, cityType == "指定都市", jobTitle in ("准教授", "助教", "助手"))
+    then
+        btm.setAccommodationFee(19000 * btm.getNumberOfNights());
+        update(btm);
+end
+
+rule "国外宿泊料計算4"
+    when
+        btm : BusinessTripModel(travelCategory == "国外", numberOfNights > 0, cityType == "指定都市以外", jobTitle in ("准教授", "助教", "助手"))
+    then
+        btm.setAccommodationFee(17000 * btm.getNumberOfNights());
+        update(btm);
+end

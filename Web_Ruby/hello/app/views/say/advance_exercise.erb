@@ -1,0 +1,19 @@
+<% 
+def convert_mark(mark, exp)
+    (mark**exp * (100.0/100**exp)).round
+end 
+%>
+
+<h1>Additional Action from Hotta Daichi!</h1>
+<table> 
+    <tr> 
+        <th>Before</th> 
+        <th>After</th> 
+    </tr> 
+    <% (0..100).each do |n| %>
+        <tr>  
+            <td><%= n %></td> 
+            <td><%= convert_mark(n, @exp) %></td> 
+        </tr> 
+    <% end %>
+</table> 

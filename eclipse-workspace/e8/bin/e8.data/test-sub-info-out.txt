@@ -1,0 +1,4 @@
+read 14 records
+Outlook rain subInfo 0.971
+Outlook overcast subInfo 0.000
+Outlook sunny subInfo 0.971

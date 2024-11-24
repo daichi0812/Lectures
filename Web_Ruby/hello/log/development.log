@@ -1,0 +1,622 @@
+Started GET "/" for ::1 at 2024-05-26 18:09:23 +0900
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 526)
+Completed 200 OK in 8ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 9386)
+
+
+Started GET "/" for ::1 at 2024-05-26 18:19:27 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 445)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 1366)
+
+
+Started GET "/say/hello" for ::1 at 2024-05-26 18:19:30 +0900
+Processing by SayController#hello as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/hello.html.erb within layouts/application
+  Rendered say/hello.html.erb within layouts/application (Duration: 0.3ms | Allocations: 106)
+  Rendered layout layouts/application.html.erb (Duration: 580.1ms | Allocations: 101950)
+Completed 200 OK in 584ms (Views: 582.1ms | ActiveRecord: 0.0ms | Allocations: 103103)
+
+
+Started GET "/say/hello" for ::1 at 2024-05-26 18:22:36 +0900
+Processing by SayController#hello as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 3033)
+
+
+  
+NameError (undefined local variable or method `time' for #<SayController:0x000000000112d8>):
+  
+app/controllers/say_controller.rb:3:in `hello'
+Started GET "/say/hello" for ::1 at 2024-05-26 18:23:07 +0900
+Processing by SayController#hello as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/hello.html.erb within layouts/application
+  Rendered say/hello.html.erb within layouts/application (Duration: 0.2ms | Allocations: 129)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 16342)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 17476)
+
+
+Started GET "/say/hello" for ::1 at 2024-05-26 18:28:16 +0900
+Processing by SayController#hello as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/hello.html.erb within layouts/application
+  Rendered say/hello.html.erb within layouts/application (Duration: 0.2ms | Allocations: 126)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 16234)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 17366)
+
+
+Started GET "/say/goodbye" for ::1 at 2024-05-26 18:28:17 +0900
+Processing by SayController#goodbye as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1164)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1250)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1648)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% for( i = 0; i < @count.times; i++ )  %>
+    <p>Goodbye!</p>
+<% end %>
+):
+1:    <% for( i = 0; i < @count.times; i++ )  %>
+2:        <p>Goodbye!</p>
+3:    <% end %>
+  
+app/views/say/goodbye.html.erb:1: syntax error, unexpected ')'
+app/views/say/goodbye.html.erb:3: syntax error, unexpected `end', expecting ')'
+Started GET "/say/goodbye" for ::1 at 2024-05-26 18:28:29 +0900
+Processing by SayController#goodbye as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1136)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1221)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2369)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% for(@count.times)  %>
+    <p>Goodbye!</p>
+<% end %>
+):
+1:    <% for(@count.times)  %>
+2:        <p>Goodbye!</p>
+3:    <% end %>
+  
+app/views/say/goodbye.html.erb:1: syntax error, unexpected '\n', expecting '.' or &. or :: or '['
+app/views/say/goodbye.html.erb:5: syntax error, unexpected `end', expecting end-of-input
+Started GET "/say/goodbye" for ::1 at 2024-05-26 18:29:22 +0900
+Processing by SayController#goodbye as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.2ms | Allocations: 137)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 16336)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 17476)
+
+
+Started GET "/say/goodbye" for ::1 at 2024-05-26 18:30:09 +0900
+Processing by SayController#goodbye as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1402)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 1708)
+
+
+Started GET "/say/goodbye?count=1234556" for ::1 at 2024-05-26 18:30:16 +0900
+Processing by SayController#goodbye as HTML
+  Parameters: {"count"=>"1234556"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 98.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 103.8ms | Allocations: 1376)
+Completed 200 OK in 105ms (Views: 104.4ms | ActiveRecord: 0.0ms | Allocations: 1683)
+
+
+Started GET "/say/goodbye?count=-1" for ::1 at 2024-05-26 18:31:10 +0900
+Processing by SayController#goodbye as HTML
+  Parameters: {"count"=>"-1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.4ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 1391)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 1697)
+
+
+Started GET "/say/goodbye?count=-1" for ::1 at 2024-05-26 18:31:39 +0900
+Processing by SayController#goodbye as HTML
+  Parameters: {"count"=>"-1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.2ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 1380)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 1686)
+
+
+Started GET "/say/goodbye?count=-1" for ::1 at 2024-05-26 18:31:43 +0900
+Processing by SayController#goodbye as HTML
+  Parameters: {"count"=>"-1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 1380)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 1686)
+
+
+Started GET "/" for ::1 at 2024-05-27 17:16:35 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 526)
+Completed 200 OK in 7ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 6496)
+
+
+Started GET "/_next/static/chunks/app-pages-internals.js" for ::1 at 2024-05-27 17:16:35 +0900
+Started GET "/_next/static/chunks/app/page.js" for ::1 at 2024-05-27 17:16:35 +0900
+Started GET "/_next/static/chunks/app/layout.js" for ::1 at 2024-05-27 17:16:35 +0900
+Started GET "/_next/static/chunks/app/(protected)/layout.js" for ::1 at 2024-05-27 17:16:35 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/app/layout.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/app/(protected)/layout.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/app-pages-internals.js"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/_next/static/chunks/app/page.js"):
+  
+Started GET "/" for ::1 at 2024-05-27 18:02:39 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 445)
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 1369)
+
+
+Started GET "/" for ::1 at 2024-05-27 18:02:42 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 274)
+
+
+Started GET "/" for ::1 at 2024-05-27 18:02:44 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 272)
+
+
+Started GET "/view/hello" for ::1 at 2024-05-27 18:02:49 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/view/hello"):
+  
+Started GET "/" for ::1 at 2024-05-27 18:03:00 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/daichi/.rvm/gems/ruby-3.0.0/gems/railties-7.1.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 272)
+
+
+Started GET "/say/hello" for ::1 at 2024-05-27 18:03:01 +0900
+Processing by SayController#hello as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/hello.html.erb within layouts/application
+  Rendered say/hello.html.erb within layouts/application (Duration: 0.2ms | Allocations: 133)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 35034)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.0ms | Allocations: 36170)
+
+
+Started GET "/say/hello" for ::1 at 2024-05-27 18:03:05 +0900
+Processing by SayController#hello as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/hello.html.erb within layouts/application
+  Rendered say/hello.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1419)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 1721)
+
+
+Started GET "/say/advance_exercise" for ::1 at 2024-05-27 18:03:15 +0900
+Processing by SayController#advance_exercise as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 3094)
+
+
+  
+NameError (undefined local variable or method `mark' for #<SayController:0x0000000000f280>):
+  
+app/controllers/say_controller.rb:13:in `advance_exercise'
+Started GET "/say/advance_exercise" for ::1 at 2024-05-27 18:04:13 +0900
+Processing by SayController#advance_exercise as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 3009)
+
+
+  
+NameError (undefined local variable or method `mark' for #<SayController:0x000000000129a8>):
+  
+app/controllers/say_controller.rb:13:in `advance_exercise'
+Started GET "/say/advance_exercise" for ::1 at 2024-05-27 18:04:24 +0900
+Processing by SayController#advance_exercise as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.4ms | Allocations: 415)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 16656)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 17792)
+
+
+Started GET "/say/advance_exercise" for ::1 at 2024-05-27 18:05:12 +0900
+  
+SyntaxError (/Users/daichi/Engineer/lectures/Projects-in-Information-Technology-2/hello/app/controllers/say_controller.rb:17: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/say_controller.rb:17: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/say/advance_exercise" for ::1 at 2024-05-27 18:05:23 +0900
+Processing by SayController#advance_exercise as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.3ms | Allocations: 408)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 16643)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 17786)
+
+
+Started GET "/say/advance_exercise" for ::1 at 2024-05-27 18:06:02 +0900
+Processing by SayController#advance_exercise as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.4ms | Allocations: 625)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 16761)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 17898)
+
+
+Started GET "/say/advance_exercise" for ::1 at 2024-05-27 18:08:48 +0900
+Processing by SayController#advance_exercise as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 3120)
+
+
+  
+NameError (undefined local variable or method `exp' for #<SayController:0x000000000236e0>
+Did you mean?  @exp):
+  
+app/controllers/say_controller.rb:13:in `advance_exercise'
+Started GET "/say/advance_exercise" for ::1 at 2024-05-27 18:09:05 +0900
+Processing by SayController#advance_exercise as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 8.2ms | Allocations: 4240)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 4316)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 5440)
+
+
+  
+ActionView::Template::Error (undefined method `convert_marks' for #<ActionView::Base:0x00000000026f20>
+Did you mean?  convert_mark):
+    13:     <% (0..100).each do |n| %>
+    14:         <tr>  
+    15:             <td><%= n %></td> 
+    16:             <td><%= convert_marks(n, @exp) %></td> 
+    17:         </tr> 
+    18:     <% end %>
+    19: </table> 
+  
+app/views/say/advance_exercise.erb:16
+app/views/say/advance_exercise.erb:13
+Started GET "/say/advance_exercise" for ::1 at 2024-05-27 18:09:20 +0900
+Processing by SayController#advance_exercise as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.3ms | Allocations: 642)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 16878)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 18012)
+
+
+Started GET "/say/advance_exercise?exp=1" for ::1 at 2024-05-27 18:09:30 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exp"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.2ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1828)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 2132)
+
+
+Started GET "/say/advance_exercise?exp=1" for ::1 at 2024-05-27 18:09:35 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exp"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.3ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 1820)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 2124)
+
+
+Started GET "/say/advance_exercise?exp=1" for ::1 at 2024-05-27 18:09:37 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exp"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.4ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1816)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2120)
+
+
+Started GET "/say/advance_exercise?exp=0.1" for ::1 at 2024-05-27 18:09:38 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exp"=>"0.1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.2ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1818)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 2122)
+
+
+Started GET "/say/advance_exercise?exp=0.1" for ::1 at 2024-05-27 18:09:58 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exp"=>"0.1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.2ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1818)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 2122)
+
+
+Started GET "/say/hello" for ::1 at 2024-05-27 18:10:00 +0900
+Processing by SayController#hello as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/hello.html.erb within layouts/application
+  Rendered say/hello.html.erb within layouts/application (Duration: 0.5ms | Allocations: 122)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1528)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 1894)
+
+
+Started GET "/say/goodbye" for ::1 at 2024-05-27 18:10:00 +0900
+Processing by SayController#goodbye as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.5ms | Allocations: 143)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1543)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 1910)
+
+
+Started GET "/say/goodbye" for ::1 at 2024-05-27 18:10:08 +0900
+Processing by SayController#goodbye as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1406)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 1712)
+
+
+Started GET "/say/goodbye" for ::1 at 2024-05-27 18:10:11 +0900
+Processing by SayController#goodbye as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1412)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 1718)
+
+
+Started GET "/say/goodbye?count=-1" for ::1 at 2024-05-27 18:10:12 +0900
+Processing by SayController#goodbye as HTML
+  Parameters: {"count"=>"-1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1408)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 1714)
+
+
+Started GET "/say/goodbye?count=100" for ::1 at 2024-05-27 18:10:16 +0900
+Processing by SayController#goodbye as HTML
+  Parameters: {"count"=>"100"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/goodbye.html.erb within layouts/application
+  Rendered say/goodbye.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1424)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 1730)
+
+
+Started GET "/say/hello" for ::1 at 2024-05-27 18:10:21 +0900
+Processing by SayController#hello as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/hello.html.erb within layouts/application
+  Rendered say/hello.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1419)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 1721)
+
+
+Started GET "/say/advance_exercise" for ::1 at 2024-05-27 18:10:28 +0900
+Processing by SayController#advance_exercise as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.2ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1822)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 2126)
+
+
+Started GET "/say/advance_exercise?exp=0.1" for ::1 at 2024-05-27 18:10:33 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exp"=>"0.1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.2ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1820)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 2124)
+
+
+Started GET "/say/advance_exercise?exponent=0.3" for ::1 at 2024-05-27 18:10:38 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.3"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.4ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1830)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 2134)
+
+
+Started GET "/say/advance_exercise?expornent=0.3" for ::1 at 2024-05-27 18:10:43 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"expornent"=>"0.3"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.4ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1822)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms | Allocations: 2126)
+
+
+Started GET "/say/advance_exercise?exponent=0.3" for ::1 at 2024-05-27 18:11:07 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.3"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 1.3ms | Allocations: 642)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 16794)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.0ms | Allocations: 17928)
+
+
+Started GET "/say/advance_exercise?exponent=0.3" for ::1 at 2024-05-27 18:11:29 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.3"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 2.9ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 1816)
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 2120)
+
+
+Started GET "/say/advance_exercise?exponent=0.1" for ::1 at 2024-05-27 18:11:34 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.2ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1819)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 2124)
+
+
+Started GET "/say/advance_exercise?exponent=0.1" for ::1 at 2024-05-27 18:11:39 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.3ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1818)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 2122)
+
+
+Started GET "/say/advance_exercise?exponent=0.1" for ::1 at 2024-05-27 18:11:39 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.5ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1820)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 2124)
+
+
+Started GET "/say/advance_exercise?exponent=0.1" for ::1 at 2024-05-27 18:13:24 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.4ms | Allocations: 1151)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 1235)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 2386)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <% 
+def convert_mark(mark, @exp)
+    (mark**@exp * (100.0/100**@exp)).round
+end 
+%>
+
+<h1>Additional Action from Hotta Daichi!</h1>
+<table> 
+    <tr> 
+        <th>Before</th> 
+        <th>After</th> 
+    </tr> 
+    <% (0..100).each do |n| %>
+        <tr>  
+            <td><%= n %></td> 
+            <td><%= convert_mark(n, @exp) %></td> 
+        </tr> 
+    <% end %>
+</table> 
+):
+1:    <% 
+2:    def convert_mark(mark, @exp)
+3:        (mark**@exp * (100.0/100**@exp)).round
+4:    end 
+5:    %>
+6:    
+7:    <h1>Additional Action from Hotta Daichi!</h1>
+8:    <table> 
+9:        <tr> 
+10:            <th>Before</th> 
+11:            <th>After</th> 
+12:        </tr> 
+13:        <% (0..100).each do |n| %>
+14:            <tr>  
+15:                <td><%= n %></td> 
+16:                <td><%= convert_mark(n, @exp) %></td> 
+17:            </tr> 
+18:        <% end %>
+19:    </table> 
+  
+app/views/say/advance_exercise.erb:2: formal argument cannot be an instance variable
+Started GET "/say/advance_exercise?exponent=0.1" for ::1 at 2024-05-27 18:13:44 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.3ms | Allocations: 642)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 16890)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 18025)
+
+
+Started GET "/say/advance_exercise?exponent=0.3" for ::1 at 2024-05-27 18:14:22 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.3"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.4ms | Allocations: 642)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 16792)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 17930)
+
+
+Started GET "/say/advance_exercise?exponent=0.5" for ::1 at 2024-05-27 18:14:24 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.5"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.2ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1826)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 2130)
+
+
+Started GET "/say/advance_exercise?exponent=0.1" for ::1 at 2024-05-27 18:14:27 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.5ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1816)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 2120)
+
+
+Started GET "/say/advance_exercise?exponent=0.1" for ::1 at 2024-05-27 18:14:27 +0900
+Processing by SayController#advance_exercise as HTML
+  Parameters: {"exponent"=>"0.1"}
+  Rendering layout layouts/application.html.erb
+  Rendering say/advance_exercise.erb within layouts/application
+  Rendered say/advance_exercise.erb within layouts/application (Duration: 0.2ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1822)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 2126)
+
+

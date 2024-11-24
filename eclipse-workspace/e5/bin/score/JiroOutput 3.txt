@@ -1,0 +1,4 @@
+The average score of Jiro: 77.40
+The average report score of Jiro: 60.40
+The maximun score of Jiro: 100 [EE]
+The minimum score of Jiro: 60 [DD]

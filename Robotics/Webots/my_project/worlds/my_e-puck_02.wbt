@@ -1,0 +1,36 @@
+#VRML_SIM R2019a utf8
+WorldInfo {
+  basicTimeStep 4
+}
+Viewpoint {
+  orientation -0.1660581870487018 0.9316946027087796 0.32306322260113063 2.2294009051825903
+  position 0.8557991144649815 0.7203170412637959 -0.6941868225340557
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+E-puck {
+  translation 0.3902945172263871 0 -0.3696893152675927
+  rotation 0 1 0 1.57
+  name "e-puck1"
+  controller "my_controller1_3_1"
+}
+Solid {
+  translation -0.4099999999999999 0 0.4299999999999999
+  children [
+    DEF CUBE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.8847333485923552 0 0.13482871747920958
+        }
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  boundingObject USE CUBE
+}

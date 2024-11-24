@@ -1,0 +1,182 @@
+
+In theory there is no difference between theory and practice.
+In practice there is. Yogi Berra
+
+Introduction to CSS
+
+This document gives an introduction to CSS (Cascading Style Sheets),
+including its purpose and structure, and some details about selectors,
+properties, and property values.
+
+Purpose
+
+CSS is a stylesheet language. A stylesheet is a collection of styles
+for styling documents. Styling can range from high-level overall layout
+of a document to precise details such as font size. CSS was developed
+to work well for Web pages written in HTML. In theory, it is possible
+to use other stylesheet languages for styling Web pages, but in practice,
+CSS is the only choice.
+
+CSS can also be used for other XML documents.
+Parts of CSS are also used in other technologies.
+CSS properties are used in SVG and XSL. CSS selectors are used in many
+libraries to select parts of a document. Therefore, learning CSS is useful
+even if you are not very interested in Web page design.
+
+[Aside] A Very Short History of CSS
+CSS was created by Håkon Wium Lie and Bert Bos at W3C. There were originally 
+many different proposals for how styling should be handled, but eventually
+CSS won. Today, the CSS specification is split into many modules that can
+be on different levels.
+
+Separating style (CSS) and structure (HTML markup) of documents is
+important for the following six reasons:
+1. The same style can be used for more than one Web page,
+   or even one or more Web sites.
+2. Web page source is simpler and cleaner, thus easier to read and write.
+3. The amount of data to be downloaded when accessing Web pages
+   is reduced.
+4. Changing the styles on a Web page or a Web site is easier.
+5. Work can easily be split between Web designers (CSS) and
+   authors/editors (HTML).
+6. Different style sheets can be used for screen display, for print,
+   and for other cases.
+   
+CSS is not an exact style sheet language. Even with the same style sheet,
+a Web page may look slightly different on different computers and with
+different browsers. For example, not all computers have the
+same fonts. CSS makes it easy to specify only part of the style,
+leaving the rest to the browser.
+   
+A Simple Example
+
+This is a simple CSS stylesheet:
+
+body { font-size: 14pt; font-family: serif;
+       line-height: 120%;
+       background-color: lightgreen;
+     }
+h1 { font-size: 130%; font-weight: bold; }
+h2 { font-size: 120%; margin-before: 0.5em; }
+h3 { font-size: 110%; }
+p  { text-indent: 1.5em; }
+aside { float: right; width: 40%; font-size: 90%; }
+
+This stylesheet has 6 style rules. The first rule says that the body
+font size is 14 points, the font should have serifs, the line height
+is 120% of the font size (i.e. the space between the lines is 20%
+of the font size), and the background color is light green.
+
+Basic Syntax
+
+The main elements of the CSS syntax are selectors, properties, and
+property values. A CSS stylesheet is a collection of rules.
+Each rule consists of some selector(s) and a declaration block in brackets.
+A declaration block contains some declarations, separated or terminated
+by semicolons. A declaration consists of a property name and a property
+value.
+
+In the above example, body and h1 are examples of selectors.
+{ font-size: 110%; } is a declaration block. background-color: #FCF and
+margin-before: 0.5em are declarations. font-weight and float are
+property names. 14pt, bold, and 90% are property values.
+
+Comments can be included in CSS. They start with /* and end with */.
+This is the same as in the programming language C. But CSS does not
+support // comments the way modern C compilers do.
+
+Parsing of CSS is tolerant to unknown selectors, property names,
+and property values. This makes it easy to introduce new properties.
+When using a new property, stylesheet designers have to be careful
+that the stylesheet still works well on browsers that do not support
+the new property.
+
+Selectors
+
+Selectors define where the style in the following declaration block
+is applied. The following table gives examples of the main types of
+selectors and their meaning:
+
+selector example  selector type          applicability
+
+*                 universal selector     matches any element
+body              element name           element content (and all its subelements)
+.warning          class selector         elements with class='warning'
+#syntax           id selector            element with id='syntax'
+a:link            link pseudoclass       link that is not yet visited
+a:visited         visited pseudoclass    link that was visited
+p code            descendant combinator  code element somewhere in p
+p > code          child combinator       code element that is a child of p
+
+More selectors can be found in Selectors Level 3.
+
+Properties
+
+Properties indicate what kind of style setting should be done. There are
+properties for margins, borders, fonts, colors, backgrounds, columns, grids,
+scrolling, animation, relative and absolute positioning, and many more.
+Properties often come in groups, for example font, font-family, font-size,
+font-weight, and so on.
+
+Cascading Style Sheets, level 1 started with about 50 properties. The
+CSS Snapshot 2023 lists about 300 properties. You can use the
+caniuse.com Web site to find out on which browsers and which versions
+of a browser a property is supported.
+
+Property Values
+
+Property values define the exact setting of a property. Many properties
+have the same or similar property values, e.g. for colors and sizes.
+
+There are two ways to indicate colors, by name and numerically.
+Color names come from a long list defined in CSS Color Module Level 3.
+Numerical color values can be of the form #rgb or #rrggbb or rgb(r,g,b).
+There are also notations for other color spaces such as RGBA and HSL.
+
+Sizes can be absolute or relative. They are defined in
+CSS Values and Units Module Level 3. Absolute sizes can be
+units such as pt (point), cm, or mm. Relative sizes can be expressed
+in percent (%) or em (the height of an uppercase M).
+
+There are many other kinds of property values.
+Please check which property values can be used with which property.
+
+How to Apply CSS to HTML
+
+There are several different ways to apply CSS to HTML. The best way is
+to have external style sheets and to link them to HTML with the
+link element in the head element. The following is an example:
+
+<link rel="stylesheet" type="text/css" href="my_stylesheet.css">
+
+A second way is to include some style rules in a style element in the
+head element of an HTML document. A third way is to add some declarations
+in a style attribute on a specific element. These ways are only suited
+for specific local style settings, and are not recommended. But they take
+priority over external stylesheet settings.
+
+[Aside] SCSS
+CSS does not allow to nest selectors and declaration blocks.
+For large style sheets, such nesting can be convenient.
+SCSS is an extension of CSS to provide nesting and some other
+additional features. Browsers do not understand it, so SCSS
+has to be converted to CSS on the server side. Recently, a
+CSS Nesting Module has been proposed, so this may change.
+
+Cascading
+
+We finally come to the explanation of the 'C' in CSS. CSS stylesheets
+work by cascading. The same property can be set to different values
+on the same text. Such settings can come from different style sheets,
+style elements, and style attributes. They can come from outer elements
+(such as the body element) or from inner elements. They can apply to an
+element, a class, or an id. They can come from a shorthand property that
+sets several related properties together (such as font or border)
+or from a more specific property (such as font-size or border-right-color).
+They can also come from an author stylesheet, a user stylesheet, or a
+browser stylesheet.
+
+All these settings are cascaded. Longer selectors win over shorter selectors.
+Inner settings win over outer settings. Later settings (e.g. in the same
+stylesheet) win over earlier settings. Understanding these precedences,
+one can write short and precise stylesheets.

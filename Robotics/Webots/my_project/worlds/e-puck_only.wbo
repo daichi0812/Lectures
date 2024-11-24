@@ -1,0 +1,6 @@
+#VRML_OBJ R2019a utf8
+E-puck {
+  rotation 0 1 0 1.57
+  name "e-puck1"
+  controller "e-puck"
+}

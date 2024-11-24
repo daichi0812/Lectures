@@ -1,0 +1,4 @@
+The average score of Hanako: 16.67
+The average report score of Hanako: NaN
+The maximun score of Hanako: 100 [AA]
+The minimum score of Hanako: 0 [BB]
