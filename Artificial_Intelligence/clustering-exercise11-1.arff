@@ -1,0 +1,14 @@
+@relation Exercise11-1-input-data
+
+@attribute x numeric
+@attribute y numeric
+@attribute id string
+
+@data
+1,3,x1
+2,1,x2
+3,2,x3
+2,3,x4
+5,4,x5
+7,5,x6
+7,4,x7

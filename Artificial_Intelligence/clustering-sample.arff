@@ -1,0 +1,13 @@
+@relation clustering-sample
+
+@attribute x numeric
+@attribute y numeric
+@attribute id string
+
+@data
+5,1,x1
+4,2,x2
+1,5,x3
+5,4,x4
+5,5,x5
+

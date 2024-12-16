@@ -1,0 +1,16 @@
+@relation Exercise11-1-input-data_clustered
+
+@attribute Instance_number numeric
+@attribute x numeric
+@attribute y numeric
+@attribute id string
+@attribute Cluster {cluster0,cluster1}
+
+@data
+0,1,3,x1,cluster1
+1,2,1,x2,cluster1
+2,3,2,x3,cluster1
+3,2,3,x4,cluster1
+4,5,4,x5,cluster0
+5,7,5,x6,cluster0
+6,7,4,x7,cluster0

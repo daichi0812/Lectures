@@ -1,0 +1,14 @@
+@relation clustering-sample_clustered
+
+@attribute Instance_number numeric
+@attribute x numeric
+@attribute y numeric
+@attribute id string
+@attribute Cluster {cluster0,cluster1}
+
+@data
+0,5,1,x1,cluster1
+1,4,2,x2,cluster1
+2,1,5,x3,cluster0
+3,5,4,x4,cluster0
+4,5,5,x5,cluster0

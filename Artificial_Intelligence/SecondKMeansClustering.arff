@@ -1,0 +1,17 @@
+@relation Question-11-input-data_clustered
+
+@attribute Instance_number numeric
+@attribute x numeric
+@attribute y numeric
+@attribute z numeric
+@attribute id string
+@attribute Cluster {cluster0,cluster1}
+
+@data
+0,2,4,1,x1,cluster1
+1,5,3,3,x2,cluster1
+2,1,3,2,x3,cluster1
+3,3,1,2,x4,cluster0
+4,1,2,9,x5,cluster0
+5,5,4,7,x6,cluster1
+6,7,1,9,x7,cluster0
